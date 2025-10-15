@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merci — Vx2 Studio</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="favicon.ico">
+<style>
+:root{
+  --bg:#0b0b0c; --ink:#f5f7fb; --muted:#adb5c2; --panel:rgba(255,255,255,.06); --bd:rgba(255,255,255,.12);
+  --radius:20px; --shadow:0 20px 60px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial; color:var(--ink); background:linear-gradient(180deg,#0a0a0b,#111214 40%,#0b0b0c)}
+.container{width:min(760px,100% - 48px); margin-inline:auto}
+main{min-height:100dvh; display:grid; place-items:center; padding:48px 0}
+.card{background:var(--panel); border:1px solid var(--bd); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow); backdrop-filter:blur(10px)}
+h1{margin:0 0 6px; font-size:clamp(24px,3.6vw,40px); letter-spacing:-.01em}
+.lead{margin:0; color:var(--muted)}
+.row{display:grid; gap:16px; margin-top:18px}
+.btns{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.btn{display:inline-grid; place-items:center; padding:12px 16px; border-radius:14px; font-weight:700}
+.btn.primary{background:#ffffff; color:#111; box-shadow:0 10px 32px rgba(255,255,255,.12)}
+.btn.ghost{border:1px solid var(--bd); background:rgba(255,255,255,.04); color:var(--ink)}
+.kv{display:grid; place-items:center; margin-bottom:14px}
+.kv .logo{width:80px; height:auto; opacity:.95; filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+hr{border:none; height:1px; background:var(--bd); margin:18px 0}
+.small{font-size:.95rem; color:var(--muted)}
+footer{color:var(--muted); padding:24px 0; text-align:center}
+</style>
+</head>
+<body>
+<main>
+  <div class="container">
+    <section class="card" aria-labelledby="tks">
+      <div class="kv"><img class="logo" src="image/V2XSTUDIO.png" alt="Vx2 Studio"></div>
+      <h1 id="tks">Merci <span id="who"></span> !</h1>
+      <p class="lead">Votre demande a bien été envoyée. Je reviens vers vous sous 24h ouvrées.</p>
+
+      <div class="row small" id="recap" hidden>
+        <div><b>Récapitulatif</b></div>
+        <div>Email : <span id="mail"></span></div>
+      </div>
+
+      <div class="btns">
+        <a class="btn primary" href="index.html#contact">Envoyer un autre message</a>
+        <a class="btn ghost" href="index.html#prix">Voir les tarifs</a>
+      </div>
+
+      <hr>
+      <p class="small">Astuce : ajoutez <b>contact@vx2.studio</b> à vos contacts pour éviter les spams.</p>
+    </section>
+  </div>
+</main>
+<footer>
+  © <span id="year"></span> Vx2 Studio — Tous droits réservés
+</footer>
+
+<script>
+// Remplit l'année
+const yearEl = document.getElementById('year');
+yearEl && (yearEl.textContent = new Date().getFullYear());
+
+// Personnalisation depuis l'URL: ?nom=Victor&email=bonjour%40vx2.studio
+const params = new URLSearchParams(location.search);
+const nom = (params.get('nom') || '').trim();
+const email = (params.get('email') || '').trim();
+
+// Affiche le prénom si possible
+const who = document.getElementById('who');
+if (nom) {
+  const first = nom.split(' ')[0];
+  who.textContent = first;
+}
+
+// Affiche récap si email présent
+if (email) {
+  document.getElementById('recap').hidden = false;
+  document.getElementById('mail').textContent = email;
+}
+</script>
+</body>
+</html>

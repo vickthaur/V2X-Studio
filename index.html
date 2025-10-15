@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vx2 Studio — Sites web rapides, WordPress & SEO</title>
+<meta name="description" content="Sites épurés et ultra‑rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu. Audit gratuit et devis en 24h.">
+<link rel="icon" href="favicon.ico">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="canonical" href="https://vx2.studio/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vx2 Studio — Sites web rapides, WordPress & SEO">
+<meta property="og:description" content="Sites épurés et ultra‑rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu.">
+<meta property="og:image" content="image/og-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Vx2 Studio",
+  "url":"https://vx2.studio/",
+  "logo":"https://vx2.studio/image/logo.png",
+  "sameAs":[]
+}
+</script>
+
+<style>
+/* ===== Design System — minimal inspiré Apple ===== */
+:root{
+  --bg:#0b0b0c;          /* noir profond */
+  --ink:#f5f7fb;         /* blanc doux */
+  --muted:#adb5c2;       /* gris lumineux */
+  --panel:rgba(255,255,255,.06); /* verre */
+  --bd:rgba(255,255,255,.12);
+  --accent:#e6e6e6;      /* gris clair pour accents */
+  --brand:#ffffff;
+  --radius:20px;
+  --shadow:0 20px 60px rgba(0,0,0,.35);
+  --gap:clamp(16px,2.2vw,28px);
+  --pad:clamp(18px,2.6vw,34px);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{
+  margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial;
+  color:var(--ink); background:radial-gradient(1200px 800px at 80% -10%, rgba(255,255,255,.06), transparent 60%),
+  radial-gradient(1200px 800px at 10% -20%, rgba(255,255,255,.08), transparent 60%),
+  linear-gradient(180deg,#0a0a0b,#111214 30%,#0b0b0c);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+img{max-width:100%; display:block}
+.container{width:min(1200px,100% - 56px); margin-inline:auto}
+.section{padding:clamp(52px,7vw,120px) 0; content-visibility:auto; contain-intrinsic-size:1px 800px}
+
+/* ===== Header — logo + H1 (ultra simple) ===== */
+header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(12px); background:rgba(12,12,14,.45); border-bottom:1px solid var(--bd)}
+.head-wrap{display:grid; place-items:center; gap:8px; padding:16px 0}
+.logo{width:90px; height:auto; filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
+h1{margin:0; font-weight:800; letter-spacing:-.02em; text-align:center; font-size:clamp(24px,3.8vw,44px)}
+
+/* ===== Hero — grand, respirant ===== */
+.hero{position:relative; overflow:hidden}
+.hero .wrap{display:grid; grid-template-columns:1.05fr .95fr; gap:var(--gap); align-items:center; padding:clamp(48px,8vw,120px) 0}
+.badge{display:inline-block; padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid var(--bd); color:var(--ink); font-weight:700; letter-spacing:.08em; font-size:12px; text-transform:uppercase}
+.lead{color:var(--muted); font-size:clamp(16px,1.2vw,19px); margin:10px 0 0}
+.actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+.btn{display:inline-grid; place-items:center; padding:12px 18px; border-radius:14px; font-weight:700}
+.btn.primary{background:var(--brand); color:#111; box-shadow:0 10px 32px rgba(255,255,255,.12)}
+.btn.ghost{border:1px solid var(--bd); background:rgba(255,255,255,.04); color:var(--ink)}
+.kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px}
+.kpi{padding:14px; border-radius:14px; border:1px solid var(--bd); background:var(--panel); backdrop-filter:blur(12px); box-shadow:var(--shadow)}
+.kpi b{font-size:20px}
+@media (max-width:900px){ .hero .wrap{grid-template-columns:1fr} .kpis{grid-template-columns:1fr} }
+
+/* Mockup carte verre */
+.card{background:var(--panel); border:1px solid var(--bd); border-radius:var(--radius); padding:var(--pad); box-shadow:var(--shadow); backdrop-filter:blur(10px)}
+.card .media{width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:16px}
+
+/* ===== Sections typées ===== */
+.section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:12px; margin-bottom:16px}
+h2{margin:0; font-size:clamp(22px,2.8vw,34px); letter-spacing:-.01em}
+.muted{color:var(--muted)}
+.grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+@media (max-width:1024px){ .grid-4{grid-template-columns:repeat(2,1fr)} .grid-3{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:640px){ .grid-4,.grid-3{grid-template-columns:1fr} }
+.card h3{margin:0 0 6px; font-size:18px}
+.card p{margin:0; color:var(--muted)}
+
+/* ===== Pricing verre ===== */
+.pricing{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px}
+.price{padding:var(--pad); text-align:center}
+.price .tag{font-size:22px; font-weight:800; margin-bottom:6px}
+.price ul{list-style:none; padding:0; margin:10px 0 0}
+.price ul li{border-top:1px solid var(--bd); padding:8px 0; font-size:.98rem}
+.badge-reco{display:inline-block; background:#fff; color:#111; border-radius:999px; padding:6px 12px; font-weight:800; font-size:.8rem; margin-bottom:10px}
+
+/* ===== CTA bande ===== */
+.cta-band{text-align:center; padding:var(--pad); border-radius:var(--radius); border:1px solid var(--bd); background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03)); box-shadow:var(--shadow); backdrop-filter:blur(10px)}
+
+/* ===== Form ===== */
+form{display:grid; gap:12px}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+@media (max-width:720px){ .two{grid-template-columns:1fr} }
+input,textarea,select{width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--bd); background:rgba(255,255,255,.06); color:var(--ink)}
+input::placeholder,textarea::placeholder{color:#9aa3b2}
+input:focus,textarea:focus,select:focus{outline:2px solid rgba(255,255,255,.22)}
+.status{font-size:.95rem}
+
+/* ===== Footer ===== */
+footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
+
+/* ===== Micro-animations (respecte reduced motion) ===== */
+.reveal{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
+.reveal.show{opacity:1; transform:none}
+.mockup-tilt{transform:perspective(1000px) rotateX(0) rotateY(0); transition:transform .2s ease}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1; transform:none}
+  .mockup-tilt{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== Header (logo + H1) ===== -->
+<header>
+  <div class="container head-wrap">
+    <img class="logo" src="image/V2XSTUDIO.png" alt="Vx2 Studio">
+    <h1>Sites web qui respirent. Performances qui convainquent.</h1>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ===== HERO ===== -->
+  <section class="hero section">
+    <div class="container wrap">
+      <div class="reveal">
+        <span class="badge">Freelance — HTML/CSS/JS · WordPress · SEO</span>
+        <p class="lead">Des interfaces sobres, rapides et pensées pour la conversion. Vous gardez la main — je m’occupe du code, du SEO et des perfs.</p>
+        <div class="actions">
+          <a class="btn primary" href="#contact" aria-label="Ouvrir le formulaire de contact">Audit SEO gratuit</a>
+          <a class="btn ghost" href="#services">Voir les services</a>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><b>⚡ 90+ PageSpeed</b><br><span class="muted">Objectif réaliste</span></div>
+          <div class="kpi"><b>7–14 jours</b><br><span class="muted">Site vitrine</span></div>
+          <div class="kpi"><b>SEO prêt</b><br><span class="muted">Balises & schémas</span></div>
+        </div>
+      </div>
+      <aside class="card reveal" aria-label="Illustration">
+        <img
+          class="media mockup-tilt"
+          src="./image/image top.gif"
+          alt="Mockup du site Vx2 Studio sur ordinateur portable et mobile"
+          style="width:100%;height:auto;border-radius:16px"
+        >
+        <p class="muted" style="margin-top:10px">Responsive • Core Web Vitals • Tracking RGPD</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Services</h2>
+        <p class="muted">Tout ce qu’il faut, sans lourdeur.</p>
+      </div>
+      <div class="grid-4">
+        <article class="card reveal"><h3>HTML/CSS/JS</h3><p>Vitrines ultra‑rapides, accessibilité, animations subtiles.</p></article>
+        <article class="card reveal"><h3>WordPress</h3><p>Thème léger, Gutenberg, Woo, sécurité & sauvegardes.</p></article>
+        <article class="card reveal"><h3>SEO</h3><p>Audit, on‑page, schema.org, plan éditorial & local.</p></article>
+        <article class="card reveal"><h3>Perf & Analytics</h3><p>Core Web Vitals, optimisation médias, GA4/Matomo RGPD.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Portfolio</h2>
+        <p class="muted">Sélection de projets.</p>
+      </div>
+      <div class="grid-3">
+        <article class="card reveal">
+          <img class="media" src="image/portfolio-1.jpg" alt="Refonte WordPress artisan" loading="lazy" decoding="async">
+          <h3 style="margin:10px 0 0">Vitrine artisan</h3>
+          <p class="muted">+38% de demandes</p>
+        </article>
+        <article class="card reveal">
+          <img class="media" src="image/portfolio-2.jpg" alt="Site évènement HTML" loading="lazy" decoding="async">
+          <h3 style="margin:10px 0 0">Évènement HTML</h3>
+          <p class="muted">Délai 1 semaine</p>
+        </article>
+        <article class="card reveal">
+          <img class="media" src="image/portfolio-3.jpg" alt="SEO local restaurant" loading="lazy" decoding="async">
+          <h3 style="margin:10px 0 0">SEO local</h3>
+          <p class="muted">Top 3 « menu + ville »</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TARIFS ===== -->
+  <section id="prix" class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Tarifs</h2>
+        <p class="muted">Clairs et évolutifs.</p>
+      </div>
+      <div class="pricing">
+        <article class="card price reveal">
+          <div class="tag">Starter — 990€</div>
+          <p class="muted">Jusqu’à 5 pages, optimisation de base.</p>
+          <ul>
+            <li>HTML/CSS/JS ou WP léger</li>
+            <li>Formulaire & hébergement</li>
+            <li>Indexation Google</li>
+          </ul>
+        </article>
+        <article class="card price reveal">
+          <span class="badge-reco">Recommandé</span>
+          <div class="tag">Business WP — 1 490€ + 49€/mois</div>
+          <p class="muted">Thème sur‑mesure, blog, SEO avancé, maintenance.</p>
+          <ul>
+            <li>10 pages + blog</li>
+            <li>Schema.org & tracking</li>
+            <li>Sauvegardes & sécurité</li>
+          </ul>
+        </article>
+        <article class="card price reveal">
+          <div class="tag">SEO Boost — 490€/mois</div>
+          <p class="muted">Audit, optimisations mensuelles, reporting.</p>
+          <ul>
+            <li>Roadmap SEO</li>
+            <li>3 pages optimisées / mois</li>
+            <li>Suivi positions</li>
+          </ul>
+        </article>
+      </div>
+      <p class="muted" style="margin-top:6px">Tarifs HT — devis précis selon besoin.</p>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="container cta-band section" aria-labelledby="cta">
+    <h2 id="cta" class="reveal">Parlons de votre projet</h2>
+    <p class="muted reveal">Un audit SEO rapide et des actions concrètes.</p>
+    <p class="reveal"><a class="btn primary" href="#contact">Me contacter</a></p>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 id="contact-title">Contact & devis</h2>
+        <p class="muted">Réponse sous 24h ouvrées.</p>
+      </div>
+      <form id="lead" class="card reveal" action="https://formspree.io/f/mvgwdrqo" method="POST" novalidate>
+        <div class="two">
+          <p><label for="nom">Nom *</label><br>
+            <input id="nom" name="nom" required placeholder="Nom Prénom" autocomplete="name"></p>
+          <p><label for="email">Email *</label><br>
+            <input id="email" name="email" type="email" required placeholder="vous@entreprise.com" autocomplete="email"></p>
+        </div>
+        <div class="two">
+          <p><label for="service">Service</label><br>
+            <select id="service" name="service">
+              <option>Site vitrine (HTML)</option>
+              <option>WordPress</option>
+              <option>WooCommerce</option>
+              <option>SEO</option>
+              <option>Maintenance</option>
+            </select></p>
+          <p><label for="tel">Téléphone</label><br>
+            <input id="tel" name="telephone" placeholder="Optionnel"></p>
+        </div>
+        <p><label for="message">Votre besoin</label><br>
+          <textarea id="message" name="message" rows="5" placeholder="Objectifs, pages, deadline, exemples…"></textarea></p>
+        <p style="display:flex;align-items:center;gap:8px">
+          <input id="rgpd" type="checkbox" required>
+          <label for="rgpd">J’accepte d’être recontacté par Vx2 Studio.</label>
+        </p>
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="Nouveau lead — Vx2 Studio">
+        <p>
+          <button class="btn primary" type="submit">Envoyer</button>
+          <span id="status" class="status muted" role="status" aria-live="polite"></span>
+        </p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <div>© <span id="year"></span> Vx2 Studio</div>
+    <div><a href="#prix">Tarifs</a> · <a href="#contact">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+  // ===== Utils =====
+  const $ = (s,r=document)=>r.querySelector(s);
+  const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+  const byId = id => document.getElementById(id);
+  
+  // Year (safe)
+  const yearEl = byId('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  
+  // ===== Reveal on scroll (reduced motion safe) =====
+  const prefersReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+      });
+    }, { threshold:.25 });
+    $$('.reveal').forEach(el=>io.observe(el));
+  } else {
+    // Fallback: tout visible
+    $$('.reveal').forEach(el=>el.classList.add('show'));
+  }
+  
+  // ===== Tilt interactif (subtil + rAF) =====
+  (() => {
+    if (prefersReduce) return;
+    const el = $('.mockup-tilt');
+    if (!el) return;
+    let aimX = 0, aimY = 0, curX = 0, curY = 0, raf;
+    const update = () => {
+      curX += (aimX - curX) * 0.18;
+      curY += (aimY - curY) * 0.18;
+      el.style.transform = `perspective(1000px) rotateX(${curX}deg) rotateY(${curY}deg) translateZ(0)`;
+      raf = requestAnimationFrame(update);
+    };
+    el.addEventListener('mousemove', (e) => {
+      const r = el.getBoundingClientRect();
+      aimX = ((e.clientY - r.top)/r.height - .5) * -6;
+      aimY = ((e.clientX - r.left)/r.width - .5) *  8;
+      if (!raf) raf = requestAnimationFrame(update);
+    });
+    el.addEventListener('mouseleave', () => {
+      aimX = 0; aimY = 0;
+      if (!raf) raf = requestAnimationFrame(update);
+      setTimeout(()=>{ cancelAnimationFrame(raf); raf = null; }, 300);
+    });
+  })();
+  
+  // ===== Formspree: validation + feedback (anti double-submit + timeout) =====
+  (() => {
+    const form = byId('lead');
+    const status = byId('status');
+    if (!form || !status) return;
+  
+    const submitBtn = form.querySelector('button[type="submit"]');
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+  
+      const data = Object.fromEntries(new FormData(form).entries());
+      const rgpd = byId('rgpd');
+  
+      // Validation
+      if (!data.nom || !data.email || !rgpd?.checked) {
+        status.textContent = 'Champs requis manquants.';
+        status.style.color = '#ff6b6b';
+        return;
+      }
+      if (!/.+@.+\..+/.test(data.email)) {
+        status.textContent = 'Email invalide.';
+        status.style.color = '#ff6b6b';
+        return;
+      }
+  
+      // UI lock
+      status.textContent = 'Envoi en cours…';
+      status.style.color = 'inherit';
+      submitBtn && (submitBtn.disabled = true);
+  
+      // Timeout 10s
+      const ctrl = new AbortController();
+      const t = setTimeout(()=>ctrl.abort(), 10000);
+  
+      try {
+        const res = await fetch('https://formspree.io/f/mvgwdrqo', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form),
+          signal: ctrl.signal
+        });
+  
+        if (res.ok) {
+          const params = new URLSearchParams({
+            nom: data.nom || '',
+            email: data.email || ''
+          });
+          // Reset propre (évite flicker si retour navigateur)
+          form.reset();
+          if (rgpd) rgpd.checked = false;
+          window.location.href = 'merci.html?' + params.toString();
+        } else {
+          status.textContent = 'Erreur serveur. Réessayez plus tard.';
+          status.style.color = '#e11d48';
+        }
+      } catch (err) {
+        status.textContent = (err.name === 'AbortError')
+          ? 'Délai dépassé. Vérifiez votre connexion.'
+          : 'Erreur de connexion. Vérifiez votre réseau.';
+        status.style.color = '#e11d48';
+      } finally {
+        clearTimeout(t);
+        submitBtn && (submitBtn.disabled = false);
+      }
+    });
+  })();
+  
+  // ===== Navigation ancre (focus) =====
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id = a.getAttribute('href').slice(1), el = byId(id);
+      if (el) {
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth'});
+        el.setAttribute('tabindex','-1');
+        el.focus({preventScroll:true});
+        // Option: fermer un éventuel menu mobile ici si tu en ajoutes plus tard
+      }
+    });
+  });
+  </script>
+</body>
+</html>
