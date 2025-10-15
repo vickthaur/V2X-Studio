@@ -108,8 +108,60 @@ input::placeholder,textarea::placeholder{color:#9aa3b2}
 input:focus,textarea:focus,select:focus{outline:2px solid rgba(255,255,255,.22)}
 .status{font-size:.95rem}
 
-/* ===== Footer ===== */
-footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
+/* ===== Footer (verre, moderne) ===== */
+.footer{
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  backdrop-filter:blur(12px);
+  border-top:1px solid var(--bd);
+}
+.footer__container{ padding:28px 0 }
+
+/* CTA bande */
+.footer-cta{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:16px; border-radius:16px;
+  background:rgba(255,255,255,.06); border:1px solid var(--bd);
+}
+.footer-cta__actions{ display:flex; gap:10px; flex-wrap:wrap }
+.btn{ display:inline-grid; place-items:center; padding:10px 16px; border-radius:12px; font-weight:700; text-decoration:none }
+.btn--primary{ background:#fff; color:#111; box-shadow:0 10px 32px rgba(255,255,255,.12) }
+.btn--ghost{ border:1px solid var(--bd); background:rgba(255,255,255,.04); color:var(--ink) }
+
+/* Grid infos */
+.footer-grid{
+  display:grid; gap:24px; margin-top:18px;
+  grid-template-columns:repeat(3, 1fr);
+}
+.footer-col{ min-width:0 }
+.footer-title{ margin:0 0 8px; font-size:1rem; font-weight:700 }
+.footer-list{ list-style:none; padding:0; margin:0; line-height:1.9 }
+.footer-list a{ text-decoration:none }
+
+/* Brand + social */
+.footer-brand{ display:flex; align-items:center; gap:10px; margin-bottom:10px }
+.footer-brand__logo{ width:34px; height:auto; border-radius:10px }
+.footer-social{ display:flex; gap:10px; margin-top:12px }
+.footer-social__btn{
+  display:grid; place-items:center; width:36px; height:36px; border-radius:999px;
+  border:1px solid var(--bd); background:rgba(255,255,255,.04); text-decoration:none;
+}
+
+/* Séparateur & bas de page */
+.footer-sep{ border:none; border-top:1px solid var(--bd); margin:22px 0 }
+.footer-bottom{
+  display:flex; gap:10px; justify-content:space-between; align-items:center; flex-wrap:wrap;
+  color:var(--muted); font-size:.95rem;
+}
+.footer-legal{ display:flex; gap:12px; align-items:center }
+
+/* Responsive */
+@media (max-width:900px){
+  .footer-grid{ grid-template-columns:1fr 1fr }
+}
+@media (max-width:600px){
+  .footer-cta{ flex-direction:column; align-items:flex-start }
+  .footer-grid{ grid-template-columns:1fr }
+}
 
 /* ===== Micro-animations (respecte reduced motion) ===== */
 .reveal{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
@@ -119,12 +171,7 @@ footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
   .reveal{opacity:1; transform:none}
   .mockup-tilt{transition:none}
 }
-  #footer {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border-top: 1px solid var(--bd);
-  box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
-}
+
 </style>
 </head>
 <body>
@@ -171,7 +218,6 @@ footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
   <div class="container">
     <div class="section-head reveal">
       <h2>💼 Services</h2>
-      <p class="muted">Tout ce qu’il faut, sans lourdeur.</p>
     </div>
 
     <div class="grid-4">
@@ -203,7 +249,6 @@ footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
     <div class="container">
       <div class="section-head reveal">
         <h2>Portfolio</h2>
-        <p class="muted">Sélection de projets.</p>
       </div>
       <div class="grid-3">
         <article class="card reveal">
@@ -232,7 +277,6 @@ footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
     <div class="container">
       <div class="section-head reveal">
         <h2>Tarifs</h2>
-        <p class="muted">Clairs et évolutifs.</p>
       </div>
       <div class="pricing">
         <article class="card price reveal">
@@ -318,55 +362,69 @@ footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
   </section>
 </main>
 
-<footer id="footer">
-  <div class="container">
-    <div class="grid-3 reveal" style="gap:30px">
-
-      <!-- Bloc 1 : Logo & tagline -->
-      <div>
-        <h3 style="display:flex;align-items:center;gap:8px;margin:0 0 10px">
-          <img src="image/V2XSTUDIO.png" alt="Vx2 Studio" style="width:38px;height:auto;border-radius:10px">
-          Vx2 Studio
-        </h3>
-        <p class="muted">
-          Création de sites web performants, modernes et optimisés SEO.<br>
-          Du design au référencement, tout est pensé pour convertir ⚡
-        </p>
+<footer id="footer" class="footer">
+  <div class="container footer__container">
+    <!-- CTA haut de footer -->
+    <div class="footer-cta card reveal">
+      <div class="footer-cta__text">
+        <h3>Discutons de votre projet</h3>
+        <p class="muted">Site vitrine, WordPress ou SEO — réponse sous 24h.</p>
       </div>
+      <div class="footer-cta__actions">
+        <a class="btn btn--primary" href="#contact">Me contacter</a>
+        <a class="btn btn--ghost" href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener noreferrer">📸 Prendre RDV</a>
+      </div>
+    </div>
 
-      <!-- Bloc 2 : Navigation -->
-      <div>
-        <h4>📂 Navigation</h4>
-        <ul style="list-style:none;padding:0;margin:0;line-height:1.8">
+    <!-- Grille infos -->
+    <div class="footer-grid reveal">
+      <!-- Brand -->
+      <section class="footer-col">
+        <div class="footer-brand">
+          <img src="image/V2XSTUDIO.png" alt="Vx2 Studio" class="footer-brand__logo">
+          <strong>Vx2 Studio</strong>
+        </div>
+        <p class="muted">Sites rapides, WordPress léger & SEO efficace.</p>
+        <div class="footer-social">
+          <a class="footer-social__btn" href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+          <a class="footer-social__btn" href="https://github.com/Vickthaur" target="_blank" rel="noopener" aria-label="GitHub">💻</a>
+          <a class="footer-social__btn" href="https://www.linkedin.com/in/victor-detroux-bb9753234/" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a>
+        </div>
+      </section>
+
+      <!-- Liens -->
+      <nav class="footer-col" aria-label="Pied de page">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-list">
           <li><a href="#top">Accueil</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#prix">Tarifs</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-      </div>
+      </nav>
 
-      <!-- Bloc 3 : Contact & réseaux -->
-      <div>
-        <h4>🤝 Me contacter</h4>
-        <ul style="list-style:none;padding:0;margin:0;line-height:1.8">
+      <!-- Contact -->
+      <section class="footer-col">
+        <h4 class="footer-title">Contact</h4>
+        <ul class="footer-list">
           <li>📧 <a href="mailto:victor.2xstudio@gmail.com">victor.2xstudio@gmail.com</a></li>
           <li>📞 <a href="tel:+33785977164">07 85 97 71 64</a></li>
-          <li>📍 Basé à Aix-en-Provence</li>
+          <li>📍 Aix-en-Provence</li>
         </ul>
-
-        <div style="margin-top:10px;display:flex;gap:12px">
-          <a href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
-          <a href="https://github.com/Vickthaur" target="_blank" rel="noopener noreferrer" aria-label="GitHub">💻</a>
-          <a href="https://www.linkedin.com/in/victor-detroux-bb9753234/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">🔗</a>
-        </div>
-      </div>
-
+      </section>
     </div>
 
-    <hr style="border:none;border-top:1px solid var(--bd);margin:24px 0">
+    <hr class="footer-sep">
 
-    <div style="text-align:center;font-size:.95rem;color:var(--muted)">
-      © <span id="year"></span> Vx2 Studio — Tous droits réservés · Design & code par <b>Victor Detroux</b>
+    <!-- Bas de page -->
+    <div class="footer-bottom">
+      <div>© <span id="year"></span> Vx2 Studio — Tous droits réservés</div>
+      <div class="footer-legal">
+        <a href="#" onclick="alert('Mentions légales à venir');return false;">Mentions légales</a>
+        <span aria-hidden="true">·</span>
+        <a href="#" onclick="alert('Politique de confidentialité à venir');return false;">Confidentialité</a>
+      </div>
     </div>
   </div>
 </footer>
