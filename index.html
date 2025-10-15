@@ -171,7 +171,25 @@ input:focus,textarea:focus,select:focus{outline:2px solid rgba(255,255,255,.22)}
   .reveal{opacity:1; transform:none}
   .mockup-tilt{transition:none}
 }
+/* ===== Liens modernes ===== */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease, opacity .2s ease;
+}
 
+a:hover {
+  color: var(--brand); /* ton bleu profond, cohérent avec le thème */
+  opacity: .8;
+}
+
+.footer a {
+  color: var(--ink);
+}
+
+.footer a:hover {
+  color: var(--brand-2);
+}
 </style>
 </head>
 <body>
