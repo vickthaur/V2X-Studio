@@ -119,6 +119,12 @@ footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
   .reveal{opacity:1; transform:none}
   .mockup-tilt{transition:none}
 }
+  #footer {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--bd);
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
+}
 </style>
 </head>
 <body>
@@ -162,19 +168,35 @@ footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
 
   <!-- ===== SERVICES ===== -->
   <section id="services" class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>Services</h2>
-        <p class="muted">Tout ce qu’il faut, sans lourdeur.</p>
-      </div>
-      <div class="grid-4">
-        <article class="card reveal"><h3>HTML/CSS/JS</h3><p>Vitrines ultra‑rapides, accessibilité, animations subtiles.</p></article>
-        <article class="card reveal"><h3>WordPress</h3><p>Thème léger, Gutenberg, Woo, sécurité & sauvegardes.</p></article>
-        <article class="card reveal"><h3>SEO</h3><p>Audit, on‑page, schema.org, plan éditorial & local.</p></article>
-        <article class="card reveal"><h3>Perf & Analytics</h3><p>Core Web Vitals, optimisation médias, GA4/Matomo RGPD.</p></article>
-      </div>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>💼 Services</h2>
+      <p class="muted">Tout ce qu’il faut, sans lourdeur.</p>
     </div>
-  </section>
+
+    <div class="grid-4">
+      <article class="card reveal">
+        <h3>💻 HTML / CSS / JS</h3>
+        <p>Vitrines ultra-rapides, accessibilité, animations subtiles.</p>
+      </article>
+
+      <article class="card reveal">
+        <h3>🧩 WordPress</h3>
+        <p>Thème léger, Gutenberg, Woo, sécurité & sauvegardes.</p>
+      </article>
+
+      <article class="card reveal">
+        <h3>🚀 SEO</h3>
+        <p>Audit, on-page, schema.org, plan éditorial & référencement local.</p>
+      </article>
+
+      <article class="card reveal">
+        <h3>📊 Perf & Analytics</h3>
+        <p>Core Web Vitals, optimisation médias, GA4 / Matomo RGPD.</p>
+      </article>
+    </div>
+  </div>
+</section>
 
   <!-- ===== PORTFOLIO ===== -->
   <section id="portfolio" class="section">
@@ -190,7 +212,7 @@ footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
           <p class="muted">+38% de demandes</p>
         </article>
         <article class="card reveal">
-  <a href="https://vickthaur.github.io/GO2INNOV/index.html#contact" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none; color:inherit;">
+  <a href="https://vickthaur.github.io/GO2INNOV/" target="_blank" rel="noopener noreferrer" style="display:block; text-decoration:none; color:inherit;">
     <img class="media" src="image/Landing page.png" alt="Landing page HTML" loading="lazy" decoding="async">
     <h3 style="margin:10px 0 0">Landing page HTML</h3>
     <p class="muted">Délai 1 semaine</p>
@@ -296,10 +318,56 @@ footer{border-top:1px solid var(--bd); color:var(--muted); padding:24px 0}
   </section>
 </main>
 
-<footer>
-  <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
-    <div>© <span id="year"></span> Vx2 Studio</div>
-    <div><a href="#prix">Tarifs</a> · <a href="#contact">Contact</a></div>
+<footer id="footer">
+  <div class="container">
+    <div class="grid-3 reveal" style="gap:30px">
+
+      <!-- Bloc 1 : Logo & tagline -->
+      <div>
+        <h3 style="display:flex;align-items:center;gap:8px;margin:0 0 10px">
+          <img src="image/V2XSTUDIO.png" alt="Vx2 Studio" style="width:38px;height:auto;border-radius:10px">
+          Vx2 Studio
+        </h3>
+        <p class="muted">
+          Création de sites web performants, modernes et optimisés SEO.<br>
+          Du design au référencement, tout est pensé pour convertir ⚡
+        </p>
+      </div>
+
+      <!-- Bloc 2 : Navigation -->
+      <div>
+        <h4>📂 Navigation</h4>
+        <ul style="list-style:none;padding:0;margin:0;line-height:1.8">
+          <li><a href="#top">Accueil</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Bloc 3 : Contact & réseaux -->
+      <div>
+        <h4>🤝 Me contacter</h4>
+        <ul style="list-style:none;padding:0;margin:0;line-height:1.8">
+          <li>📧 <a href="mailto:victor.2xstudio@gmail.com">victor.2xstudio@gmail.com</a></li>
+          <li>📞 <a href="tel:+33785977164">07 85 97 71 64</a></li>
+          <li>📍 Basé à Aix-en-Provence</li>
+        </ul>
+
+        <div style="margin-top:10px;display:flex;gap:12px">
+          <a href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
+          <a href="https://github.com/Vickthaur" target="_blank" rel="noopener noreferrer" aria-label="GitHub">💻</a>
+          <a href="https://www.linkedin.com/in/victor-detroux-bb9753234/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">🔗</a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr style="border:none;border-top:1px solid var(--bd);margin:24px 0">
+
+    <div style="text-align:center;font-size:.95rem;color:var(--muted)">
+      © <span id="year"></span> Vx2 Studio — Tous droits réservés · Design & code par <b>Victor Detroux</b>
+    </div>
   </div>
 </footer>
 
