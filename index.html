@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <!-- ========== META ========== -->
+  <!-- ========= META ========= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0a4466" />
@@ -40,51 +40,34 @@
   }
   </script>
 
-  <!-- (Optionnel) JSON-LD FAQPage — à remplir si tu ajoutes une vraie FAQ -->
+  <!-- JSON-LD FAQPage (à remplir si tu ajoutes une vraie FAQ) -->
   <script type="application/ld+json" id="faq-jsonld">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": []
-  }
+  { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [] }
   </script>
 
-  <!-- Préchargement -->
+  <!-- Préchargement visuels clés -->
   <link rel="preload" as="image" href="image/V2XSTUDIO.webp" imagesizes="(max-width: 768px) 120px, 180px" />
   <link rel="preload" as="image" href="image/og-cover.jpg" />
 
-  <!-- ========== STYLES ========== -->
+  <!-- ========= STYLES ========= -->
   <style>
-    /* ================= Design System (Dark par défaut) ================= */
+    /* ================= Design System ================= */
     :root{
-      --bg:#0b0b0c;
-      --ink:#f5f7fb;
-      --muted:#adb5c2;
-      --panel:rgba(255,255,255,.06);
-      --bd:rgba(255,255,255,.12);
-      --accent:#e6e6e6;
-      --brand:#0a4466;
-      --brand-2:#136e99;
-      --radius:20px;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-      --gap:clamp(16px,2.2vw,28px);
-      --pad:clamp(18px,2.6vw,34px);
+      --bg:#0b0b0c; --ink:#f5f7fb; --muted:#adb5c2;
+      --panel:rgba(255,255,255,.06); --bd:rgba(255,255,255,.12);
+      --accent:#e6e6e6; --brand:#0a4466; --brand-2:#136e99;
+      --radius:20px; --shadow:0 20px 60px rgba(0,0,0,.35);
+      --gap:clamp(16px,2.2vw,28px); --pad:clamp(18px,2.6vw,34px);
       --container-w:1200px;
     }
-    /* ====== Variante Light auto ====== */
+    /* Light mode auto */
     @media (prefers-color-scheme: light){
       :root{
-        --bg:#f7f8fb;
-        --ink:#0e1116;
-        --muted:#6b7280;
-        --panel:rgba(0,0,0,.03);
-        --bd:rgba(0,0,0,.12);
-        --accent:#1f2937;
-        --brand:#0a4466;
-        --brand-2:#125e85;
+        --bg:#f7f8fb; --ink:#0e1116; --muted:#6b7280;
+        --panel:rgba(0,0,0,.03); --bd:rgba(0,0,0,.12);
+        --accent:#1f2937; --brand:#0a4466; --brand-2:#125e85;
         --shadow:0 12px 40px rgba(0,0,0,.10);
       }
-      .footer a{ color:var(--ink) }
     }
 
     /* Base */
@@ -92,7 +75,8 @@
     html,body{height:100%}
     html{scroll-behavior:smooth}
     body{
-      margin:0; font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      margin:0;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);
       background:
         radial-gradient(1200px 800px at 80% -10%, rgba(255,255,255,.06), transparent 60%),
@@ -115,7 +99,12 @@
     .section{padding:clamp(52px,7vw,120px) 0;content-visibility:auto;contain-intrinsic-size:1px 800px}
 
     /* Header */
-    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(12px);background:rgba(12,12,14,.45);border-bottom:1px solid var(--bd)}
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(140%) blur(12px);
+      background:rgba(12,12,14,.45);
+      border-bottom:1px solid var(--bd);
+    }
     @media (prefers-color-scheme: light){
       header{background:rgba(255,255,255,.75)}
     }
@@ -139,7 +128,7 @@
     .kpi b{font-size:20px}
     @media (max-width:900px){ .hero .wrap{grid-template-columns:1fr} .kpis{grid-template-columns:1fr} }
 
-    /* Cards & grids */
+    /* Cards / grids */
     .card{background:var(--panel);border:1px solid var(--bd);border-radius:var(--radius);padding:var(--pad);box-shadow:var(--shadow);backdrop-filter:blur(10px)}
     .card .media{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:16px}
     .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-bottom:16px}
@@ -164,7 +153,7 @@
     .cta-band{text-align:center;padding:var(--pad);border-radius:var(--radius);border:1px solid var(--bd);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));box-shadow:var(--shadow);backdrop-filter:blur(10px)}
 
     /* Form */
-    form{display:grid;gap:12px}
+    form{display:grid;gap:12px;position:relative}
     .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     @media (max-width:720px){ .two{grid-template-columns:1fr} }
     input,textarea,select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--bd);background:rgba(255,255,255,.06);color:var(--ink)}
@@ -181,7 +170,6 @@
     .footer-col{min-width:0}
     .footer-title{margin:0 0 8px;font-size:1rem;font-weight:700}
     .footer-list{list-style:none;padding:0;margin:0;line-height:1.9}
-    .footer-list a{text-decoration:none}
     .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
     .footer-brand__logo{width:34px;height:auto;border-radius:10px}
     .footer-social{display:flex;gap:10px;margin-top:12px}
@@ -189,7 +177,6 @@
     .footer-sep{border:none;border-top:1px solid var(--bd);margin:22px 0}
     .footer-bottom{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
     .footer-legal{display:flex;gap:12px;align-items:center}
-    .footer a{color:var(--ink)} .footer a:hover{color:var(--brand-2)}
     @media (max-width:900px){ .footer-grid{grid-template-columns:1fr 1fr} }
     @media (max-width:600px){ .footer-cta{flex-direction:column;align-items:flex-start} .footer-grid{grid-template-columns:1fr} }
 
@@ -202,28 +189,78 @@
       .mockup-tilt{transition:none}
     }
 
-    /* ===== CHATBOT ===== */
-    .vx2-chat-launcher{position:fixed;right:20px;bottom:20px;z-index:1000;width:56px;height:56px;border-radius:999px;border:none;cursor:pointer;display:grid;place-items:center;color:#fff;background:var(--brand);box-shadow:0 10px 28px rgba(0,0,0,.25)}
-    .vx2-chat-launcher:hover{filter:brightness(1.05)}
-    .vx2-chat-window{position:fixed;right:20px;bottom:90px;z-index:1000;width:360px;max-width:calc(100vw - 40px);background:#0f1115;color:var(--ink);border:1px solid var(--bd);border-radius:16px;display:none;flex-direction:column;box-shadow:0 22px 60px rgba(0,0,0,.35);overflow:hidden}
-    @media (prefers-color-scheme: light){ .vx2-chat-window{background:#ffffff} }
-    .vx2-chat-window.open{display:flex}
-    .vx2-chat-header{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;background:linear-gradient(135deg,var(--brand),#12a4d9);color:#fff}
-    .vx2-chat-header h3{margin:0;font-size:15px}
-    .vx2-chat-close{background:transparent;border:none;color:#fff;font-size:22px;cursor:pointer}
-    .vx2-chat-messages{height:360px;overflow:auto;padding:12px;background:rgba(255,255,255,.03)}
-    .vx2-msg{display:flex;gap:10px;margin:8px 0}
-    .vx2-msg.user{justify-content:flex-end}
-    .vx2-bubble{max-width:80%;padding:9px 11px;border-radius:12px;font-size:14px;line-height:1.35;word-wrap:break-word;white-space:pre-wrap}
-    .vx2-msg.user .vx2-bubble{background:#dbeafe;color:#0b1220;border:1px solid #bcd7ff}
-    .vx2-msg.bot .vx2-bubble{background:rgba(255,255,255,.06);border:1px solid var(--bd)}
-    .vx2-chat-input{display:flex;gap:8px;padding:10px;border-top:1px solid var(--bd);background:rgba(255,255,255,.02)}
-    .vx2-chat-input input{flex:1;padding:10px 12px;border-radius:12px;border:1px solid var(--bd);background:rgba(255,255,255,.06);color:var(--ink)}
-    .vx2-chat-input button{border:1px solid #0ea5e9;background:#0ea5e9;color:#fff;border-radius:12px;padding:10px 14px;cursor:pointer}
-    @media (max-height:640px){ .vx2-chat-messages{height:260px} }
+    /* ===== Chat — Styles améliorés ===== */
+    .vx2-chat-launcher{
+      position:fixed; right:20px; bottom:20px; z-index:1000;
+      width:56px; height:56px; border:none; cursor:pointer;
+      border-radius:999px; display:grid; place-items:center;
+      color:#fff; background:var(--brand); box-shadow:0 10px 28px rgba(0,0,0,.25);
+    }
+    .vx2-chat-launcher:hover{ filter:brightness(1.05) }
+    .vx2-badge{
+      position:absolute; top:-4px; right:-4px; min-width:18px; height:18px;
+      padding:0 5px; border-radius:999px; background:#ef4444; color:#fff;
+      font:700 11px/18px Inter,system-ui; display:none; text-align:center;
+    }
+    .vx2-badge.show{ display:block }
+
+    .vx2-chat-window{
+      position:fixed; right:20px; bottom:90px; z-index:1000;
+      width:380px; max-width:calc(100vw - 40px);
+      background:#0f1115; color:var(--ink);
+      border:1px solid var(--bd); border-radius:16px; display:none; flex-direction:column;
+      box-shadow:0 22px 60px rgba(0,0,0,.35); overflow:hidden;
+    }
+    @media (prefers-color-scheme: light){ .vx2-chat-window{ background:#ffffff } }
+    .vx2-chat-window.open{ display:flex }
+
+    .vx2-chat-header{
+      display:flex; justify-content:space-between; align-items:center; gap:8px;
+      padding:10px 12px; background:linear-gradient(135deg,var(--brand),#12a4d9); color:#fff;
+    }
+    .vx2-chat-title{ margin:0; font-size:15px; display:flex; align-items:center; gap:8px }
+    .vx2-status-dot{ width:8px; height:8px; border-radius:999px; background:#22c55e }
+    .vx2-chat-close{ background:transparent; border:none; color:#fff; font-size:22px; cursor:pointer }
+
+    .vx2-quick{ display:flex; flex-wrap:wrap; gap:6px; padding:8px 12px }
+    .vx2-chip{
+      border:1px solid var(--bd); background:rgba(255,255,255,.04);
+      padding:6px 10px; border-radius:999px; font-size:12px; cursor:pointer;
+    }
+    .vx2-chip:hover{ background:rgba(255,255,255,.08) }
+
+    .vx2-chat-messages{ height:380px; overflow:auto; padding:12px; background:rgba(255,255,255,.03) }
+    .vx2-msg{ display:flex; gap:10px; margin:8px 0 }
+    .vx2-msg.user{ justify-content:flex-end }
+    .vx2-bubble{
+      max-width:80%; padding:10px 12px; border-radius:12px; font-size:14px; line-height:1.35;
+      word-wrap:break-word; white-space:pre-wrap; position:relative;
+    }
+    .vx2-meta{ display:block; margin-top:4px; font-size:11px; opacity:.7 }
+    .vx2-msg.user .vx2-bubble{ background:#dbeafe; color:#0b1220; border:1px solid #bcd7ff }
+    .vx2-msg.bot  .vx2-bubble{ background:rgba(255,255,255,.06); border:1px solid var(--bd) }
+
+    .vx2-typing{ display:flex; align-items:center; gap:8px; margin:6px 0 2px 4px }
+    .vx2-typing .dot{
+      width:6px; height:6px; border-radius:999px; background:rgba(255,255,255,.6);
+      animation:vx2blink 1.3s infinite;
+    }
+    .vx2-typing .dot:nth-child(2){ animation-delay:.15s }
+    .vx2-typing .dot:nth-child(3){ animation-delay:.3s }
+    @keyframes vx2blink { 0%,80%,100%{opacity:.2} 40%{opacity:1} }
+
+    .vx2-chat-input{ display:flex; gap:8px; padding:10px; border-top:1px solid var(--bd); background:rgba(255,255,255,.02) }
+    .vx2-chat-input input{ flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--bd); background:rgba(255,255,255,.06); color:var(--ink) }
+    .vx2-chat-input button{ border:1px solid #0ea5e9; background:#0ea5e9; color:#fff; border-radius:12px; padding:10px 14px; cursor:pointer }
+    @media (max-height:640px){ .vx2-chat-messages{ height:280px } }
 
     /* ===== Bannière RGPD ===== */
-    .consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:1100;display:none;gap:12px;align-items:flex-start;justify-content:space-between;background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)}
+    .consent-banner{
+      position:fixed;left:16px;right:16px;bottom:16px;z-index:1100;display:none;
+      gap:12px;align-items:flex-start;justify-content:space-between;
+      background:var(--panel);backdrop-filter:blur(10px);border:1px solid var(--bd);
+      border-radius:14px;padding:14px 16px;box-shadow:var(--shadow)
+    }
     .consent-banner.show{display:flex}
     .consent-actions{display:flex;gap:8px;flex-wrap:wrap}
     .btn.small{padding:8px 12px;border-radius:10px;font-size:.9rem}
@@ -232,7 +269,7 @@
 </head>
 
 <body>
-  <!-- ===== Header ===== -->
+  <!-- ========= HEADER ========= -->
   <header>
     <div class="container head-wrap">
       <img class="logo" src="image/V2XSTUDIO.webp" alt="Vx2 Studio" width="180" height="180" />
@@ -240,44 +277,45 @@
     </div>
   </header>
 
+  <!-- ========= MAIN ========= -->
   <main id="top">
-    <!-- ===== HERO ===== -->
+    <!-- HERO -->
     <section class="hero section" aria-labelledby="hero-title">
       <div class="container wrap">
         <div class="reveal">
-          <span class="badge" aria-label="Compétences principales">Freelance — HTML/CSS/JS · WordPress · SEO</span>
+          <span class="badge" aria-label="Compétences">Freelance — HTML/CSS/JS · WordPress · SEO</span>
           <p id="hero-title" class="lead">Des interfaces sobres, rapides et pensées pour la conversion. Vous gardez la main — je m’occupe du code, du SEO et des perfs.</p>
-          <div class="actions" aria-label="Actions principales">
-            <a class="btn primary" href="#contact" aria-label="Ouvrir le formulaire de contact">Audit SEO gratuit</a>
+          <div class="actions" aria-label="Actions">
+            <a class="btn primary" href="#contact">Audit SEO gratuit</a>
             <a class="btn ghost" href="#services">Voir les services</a>
           </div>
-          <div class="kpis" aria-label="Indicateurs clés">
+          <div class="kpis" aria-label="Indicateurs">
             <div class="kpi"><b>⚡ 90+ PageSpeed</b><br><span class="muted">Objectif réaliste</span></div>
             <div class="kpi"><b>7–14 jours</b><br><span class="muted">Site vitrine</span></div>
             <div class="kpi"><b>SEO prêt</b><br><span class="muted">Balises & schémas</span></div>
           </div>
         </div>
-        <aside class="card reveal" aria-label="Illustration produit">
-          <img class="media mockup-tilt" src="image/image-top.gif" alt="Mockup du site Vx2 Studio" width="1280" height="800" loading="eager" decoding="sync" />
+        <aside class="card reveal" aria-label="Illustration">
+          <img class="media mockup-tilt" src="image/image-top.gif" alt="Mockup Vx2 Studio" width="1280" height="800" loading="eager" decoding="sync" />
           <p class="muted" style="margin-top:10px">Responsive • Core Web Vitals • Tracking RGPD</p>
         </aside>
       </div>
     </section>
 
-    <!-- ===== SERVICES ===== -->
+    <!-- SERVICES -->
     <section id="services" class="section" aria-labelledby="services-title">
       <div class="container">
-        <div class="section-head reveal"><h2 id="services-title">💼 Services</h2></div>
+        <div class="section-head reveal"><h2 id="services-title">Services</h2></div>
         <div class="grid-4">
-          <article class="card reveal" aria-label="Service HTML/CSS/JS"><h3>💻 HTML / CSS / JS</h3><p>Vitrines ultra-rapides, accessibilité, animations subtiles.</p></article>
-          <article class="card reveal" aria-label="Service WordPress"><h3>🧩 WordPress</h3><p>Thème léger, Gutenberg, Woo, sécurité & sauvegardes.</p></article>
-          <article class="card reveal" aria-label="Service SEO"><h3>🚀 SEO</h3><p>Audit, on-page, schema.org, plan éditorial & référencement local.</p></article>
-          <article class="card reveal" aria-label="Service Création de logo"><h3>🎨 Création de Logo</h3><p>Conseil créatif, conception & déclinaisons.</p></article>
+          <article class="card reveal" aria-label="HTML/CSS/JS"><h3>HTML / CSS / JS</h3><p>Vitrines ultra-rapides, accessibilité, animations subtiles.</p></article>
+          <article class="card reveal" aria-label="WordPress"><h3>WordPress</h3><p>Thème léger, Gutenberg, Woo, sécurité & sauvegardes.</p></article>
+          <article class="card reveal" aria-label="SEO"><h3>SEO</h3><p>Audit, on-page, schema.org, plan éditorial & référencement local.</p></article>
+          <article class="card reveal" aria-label="Logo"><h3>Création de Logo</h3><p>Conseil créatif, conception & déclinaisons.</p></article>
         </div>
       </div>
     </section>
 
-    <!-- ===== PORTFOLIO ===== -->
+    <!-- PORTFOLIO -->
     <section id="portfolio" class="section" aria-labelledby="portfolio-title">
       <div class="container">
         <div class="section-head reveal"><h2 id="portfolio-title">Portfolio</h2></div>
@@ -300,7 +338,7 @@
       </div>
     </section>
 
-    <!-- ===== TARIFS ===== -->
+    <!-- TARIFS -->
     <section id="prix" class="section" aria-labelledby="pricing-title">
       <div class="container">
         <div class="section-head reveal"><h2 id="pricing-title">Tarifs</h2></div>
@@ -314,44 +352,56 @@
       </div>
     </section>
 
-    <!-- ===== CTA ===== -->
-    <section class="container cta-band section" aria-labelledby="cta"><h2 id="cta" class="reveal">Parlons de votre projet</h2><p class="muted reveal">Un audit SEO rapide et des actions concrètes.</p><p class="reveal"><a class="btn primary" href="#contact">Me contacter</a></p></section>
+    <!-- CTA -->
+    <section class="container cta-band section" aria-labelledby="cta">
+      <h2 id="cta" class="reveal">Parlons de votre projet</h2>
+      <p class="muted reveal">Un audit SEO rapide et des actions concrètes.</p>
+      <p class="reveal"><a class="btn primary" href="#contact">Me contacter</a></p>
+    </section>
 
-    <!-- ===== CONTACT ===== -->
+    <!-- CONTACT -->
     <section id="contact" class="section" aria-labelledby="contact-title">
       <div class="container">
-        <div class="section-head reveal"><h2 id="contact-title">Contact & devis</h2><p class="muted">Réponse sous 24h ouvrées.</p></div>
+        <div class="section-head reveal">
+          <h2 id="contact-title">Contact & devis</h2>
+          <p class="muted">Réponse sous 24h ouvrées.</p>
+        </div>
+
         <form id="lead" class="card reveal" action="https://formspree.io/f/mvgwdrqo" method="POST" novalidate aria-describedby="status">
           <div class="two">
             <p><label for="nom">Nom <span aria-hidden="true">*</span></label><br><input id="nom" name="nom" required placeholder="Nom Prénom" autocomplete="name" /></p>
             <p><label for="email">Email <span aria-hidden="true">*</span></label><br><input id="email" name="email" type="email" required placeholder="vous@entreprise.com" autocomplete="email" /></p>
           </div>
           <div class="two">
-            <p><label for="service">Service</label><br><select id="service" name="service"><option>Site vitrine (HTML)</option><option>WordPress</option><option>WooCommerce</option><option>SEO</option><option>Maintenance</option><option>Création de Logo</option></select></p>
+            <p><label for="service">Service</label><br>
+              <select id="service" name="service">
+                <option>Site vitrine (HTML)</option><option>WordPress</option><option>WooCommerce</option>
+                <option>SEO</option><option>Maintenance</option><option>Création de Logo</option>
+              </select>
+            </p>
             <p><label for="tel">Téléphone</label><br><input id="tel" name="telephone" inputmode="tel" placeholder="Optionnel" autocomplete="tel" /></p>
           </div>
           <p><label for="message">Votre besoin</label><br><textarea id="message" name="message" rows="5" placeholder="Objectifs, pages, deadline, exemples…"></textarea></p>
           <p style="display:flex;align-items:center;gap:8px"><input id="rgpd" name="rgpd" type="checkbox" required /><label for="rgpd">J’accepte d’être recontacté par Vx2 Studio.</label></p>
-          <!-- Anti-spam -->
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
           <input type="hidden" name="_subject" value="Nouveau lead — Vx2 Studio" />
           <p>
             <button class="btn primary" type="submit">Envoyer</button>
             <span id="status" class="status muted" role="status" aria-live="polite"></span>
           </p>
-          <!-- ARIA alert (succès/erreur) -->
+          <!-- Zone d’alerte aria (succès/erreur) -->
           <div id="form-alert" role="alert" aria-live="assertive" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden"></div>
         </form>
       </div>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ========= FOOTER ========= -->
   <footer id="footer" class="footer" role="contentinfo">
     <div class="container footer__container">
       <div class="footer-cta card reveal" aria-label="Contact rapide">
         <div class="footer-cta__text"><h3>Discutons de votre projet</h3><p class="muted">Site vitrine, WordPress ou SEO — réponse sous 24h.</p></div>
-        <div class="footer-cta__actions"><a class="btn ghost" href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener noreferrer">📸 Prendre RDV</a></div>
+        <div class="footer-cta__actions"><a class="btn ghost" href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener noreferrer">Prendre RDV</a></div>
       </div>
 
       <div class="footer-grid reveal">
@@ -393,18 +443,27 @@
       </div>
     </div>
 
-    <!-- ===== CHAT ===== -->
-    <button class="vx2-chat-launcher" id="vx2ChatLauncher" aria-label="Ouvrir le chat" aria-expanded="false">💬</button>
+    <!-- ===== CHATBOT ===== -->
+    <button class="vx2-chat-launcher" id="vx2ChatLauncher" aria-label="Ouvrir le chat" aria-expanded="false">
+      💬 <span class="vx2-badge" id="vx2Badge">1</span>
+    </button>
 
     <div class="vx2-chat-window" id="vx2ChatWindow" role="dialog" aria-modal="true" aria-labelledby="vx2ChatTitle" aria-describedby="vx2ChatDesc" inert>
-      <!-- Focus sentinels pour piège de focus -->
+      <!-- Sentinelles de focus (focus trap) -->
       <div tabindex="0" id="vx2TrapStart" aria-hidden="true"></div>
 
       <div class="vx2-chat-header">
-        <h3 id="vx2ChatTitle">Assistant Vx2</h3>
+        <h3 class="vx2-chat-title" id="vx2ChatTitle"><span class="vx2-status-dot" aria-hidden="true"></span> Assistant Vx2</h3>
         <button class="vx2-chat-close" id="vx2ChatClose" aria-label="Fermer">×</button>
       </div>
-      <div id="vx2ChatDesc" hidden>Fenêtre de conversation d’assistance Vx2 Studio.</div>
+      <p id="vx2ChatDesc" hidden>Fenêtre de conversation d’assistance Vx2 Studio.</p>
+
+      <div class="vx2-quick" id="vx2Quick">
+        <button class="vx2-chip" data-q="Quels sont vos tarifs ?">Tarifs</button>
+        <button class="vx2-chip" data-q="Quel est le délai moyen pour un site vitrine ?">Délais</button>
+        <button class="vx2-chip" data-q="Comment gérez-vous le SEO ?">SEO</button>
+        <button class="vx2-chip" data-q="Puis-je migrer vers WordPress ?">WordPress</button>
+      </div>
 
       <div class="vx2-chat-messages" id="vx2ChatMessages" aria-live="polite"></div>
 
@@ -418,7 +477,7 @@
     </div>
   </footer>
 
-  <!-- ===== Bannière RGPD (Consent Mode light) ===== -->
+  <!-- ===== Bannière RGPD ===== -->
   <div class="consent-banner" id="consentBanner" role="dialog" aria-modal="false" aria-live="polite" aria-labelledby="consentTitle">
     <div style="max-width:60ch">
       <strong id="consentTitle">Cookies & mesure d’audience</strong>
@@ -433,7 +492,7 @@
     </div>
   </div>
 
-  <!-- ========== SCRIPTS ========== -->
+  <!-- ========= SCRIPTS ========= -->
   <script>
     /* ===== Utils ===== */
     const $ = (s,r=document)=>r.querySelector(s);
@@ -443,7 +502,7 @@
     /* Année dynamique */
     const yearEl = byId('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    /* Reveal on scroll */
+    /* Reveal on scroll (respect reduced motion) */
     const prefersReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!prefersReduce && 'IntersectionObserver' in window) {
       const io = new IntersectionObserver((entries)=>{
@@ -531,7 +590,7 @@
         }
       });
 
-      // Enlever aria-invalid au focus
+      // Enlever aria-invalid au input
       ['nom','email'].forEach(id=>{
         const el = byId(id);
         el && el.addEventListener('input', ()=> setInvalid(el, false));
@@ -549,7 +608,7 @@
       const setConsent = (v) => localStorage.setItem(KEY, v);
 
       const injectAnalytics = () => {
-        // Exemple 1 : GA4 (décommente si tu utilises GA)
+        // Exemple GA4 : décommente et remplace l'ID si tu l'utilises
         // const gtag = document.createElement('script');
         // gtag.src = `https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID`;
         // gtag.async = true; document.head.appendChild(gtag);
@@ -557,7 +616,7 @@
         // function g(){ dataLayer.push(arguments); }
         // g('js', new Date()); g('config','GA_MEASUREMENT_ID', { anonymize_ip: true });
 
-        // Exemple 2 : Plausible (décommente et remplace domaine)
+        // Exemple Plausible :
         // const plausible = document.createElement('script');
         // plausible.src = 'https://plausible.io/js/plausible.js';
         // plausible.setAttribute('data-domain','ton-domaine.tld');
@@ -567,40 +626,32 @@
       const consent = getConsent();
       if (!consent) { banner.classList.add('show'); }
 
-      allowBtn?.addEventListener('click', () => {
-        setConsent('granted'); banner.classList.remove('show'); injectAnalytics();
-      });
-      denyBtn?.addEventListener('click', () => {
-        setConsent('denied'); banner.classList.remove('show');
-      });
+      allowBtn?.addEventListener('click', () => { setConsent('granted'); banner.classList.remove('show'); injectAnalytics(); });
+      denyBtn?.addEventListener('click', () => { setConsent('denied');  banner.classList.remove('show'); });
 
-      // Si l’utilisateur a déjà consenti dans le passé, charge analytics
       if (consent === 'granted') injectAnalytics();
     })();
 
-    /* ===== web-vitals (LCP/CLS/INP) : log console + POST optionnel ===== */
+    /* ===== web-vitals (LCP/CLS/INP) ===== */
     (async () => {
       try {
         const { webVitals } = await import('https://unpkg.com/web-vitals@3/dist/web-vitals.attribution.iife.js');
         const sendTo = (metric) => {
-          // Log clair en console
           console.log(`[Vitals] ${metric.name}:`, metric.value, metric);
-          // Envoi optionnel à un backend (remplacer l’URL si besoin)
-          const ENDPOINT = 'YOUR_VITALS_ENDPOINT'; // ex: https://vitals.example.com/collect
+          const ENDPOINT = ''; // ex: https://vitals.example.com/collect
           if (ENDPOINT && ENDPOINT.startsWith('http')) {
             navigator.sendBeacon?.(ENDPOINT, JSON.stringify(metric)) ||
             fetch(ENDPOINT, { method:'POST', keepalive:true, headers:{'Content-Type':'application/json'}, body:JSON.stringify(metric) });
           }
         };
-        webVitals.onLCP(sendTo);
-        webVitals.onCLS(sendTo);
-        webVitals.onINP(sendTo);
+        webVitals.onLCP(sendTo); webVitals.onCLS(sendTo); webVitals.onINP(sendTo);
       } catch(e){ /* silencieux si offline */ }
     })();
 
-    /* ===== Chat enrichi : focus trap + envoi async (endpoint/Slack) ===== */
+    /* ===== Chat enrichi : welcome, typing, quick replies, cooldown, persistance, focus trap ===== */
     (() => {
       const launcher = byId('vx2ChatLauncher');
+      const badge    = byId('vx2Badge');
       const win      = byId('vx2ChatWindow');
       const msgs     = byId('vx2ChatMessages');
       const input    = byId('vx2ChatInput');
@@ -608,67 +659,73 @@
       const closeBtn = byId('vx2ChatClose');
       const trapStart= byId('vx2TrapStart');
       const trapEnd  = byId('vx2TrapEnd');
+      const quickBar = byId('vx2Quick');
 
       if (!launcher || !win || !msgs || !input || !sendBtn || !closeBtn) return;
 
-      // FAQ fallback
-      const faq = [
-        { k:["tarif","prix","coût","combien"], r:"Sites vitrine dès 990€ HT. Devis précis après un appel de 15 min. Réponse sous 24h." },
-        { k:["délai","delai","deadline","temps","livraison"], r:"Un site vitrine : 7–14 jours. Un WordPress complet : 2–4 semaines selon le contenu." },
-        { k:["seo","référencement","google"], r:"SEO technique inclus (balises, structure, perf) + plan d’actions. Objectif PageSpeed 90+." },
-        { k:["technos","stack","html","wordpress","wp","js","css"], r:"HTML/CSS/JS natif, WordPress (thème léger), Woo, accessibilité & Core Web Vitals." },
-        { k:["maintenance","maj","sécurité","sauvegarde"], r:"MAJ cœur/plug-ins, sauvegardes, monitoring, durcissement sécurité + support." }
-      ];
+      /* Optionnels : endpoints externes */
+      const ENDPOINT_URL  = ''; // ex: 'https://worker.example.com/chat'
+      const SLACK_WEBHOOK = ''; // ex: 'https://hooks.slack.com/services/XXX/YYY/ZZZ'
 
-      const hoursOk = () => {
-        // Heures ouvrées simples (9h–18h, Lun–Ven) — Europe/Paris
-        const d = new Date();
-        const day = d.getDay(); const h = d.getHours();
-        return day>=1 && day<=5 && h>=9 && h<18;
-      };
+      let lastFocus = null, cooldown = false, unread = 0, welcomed = false;
 
-      const scrollToBottom = () => { msgs.scrollTop = msgs.scrollHeight; };
-      const saveState = () => localStorage.setItem('vx2chat', msgs.innerHTML);
+      const nowTime = () => new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
       const loadState = () => { const s = localStorage.getItem('vx2chat'); if (s) msgs.innerHTML = s; };
+      const saveState = () => localStorage.setItem('vx2chat', msgs.innerHTML);
+
+      const scrollNearBottom = () => (msgs.scrollHeight - msgs.scrollTop - msgs.clientHeight) < 80;
+      const scrollToBottom = (force=false) => { if (force || scrollNearBottom()) msgs.scrollTop = msgs.scrollHeight; };
+
+      const setBadge = (n) => { if (!badge) return; n>0 ? (badge.textContent=n, badge.classList.add('show')) : badge.classList.remove('show'); };
+
+      const addTyping = () => {
+        const wrap = document.createElement('div'); wrap.className = 'vx2-typing'; wrap.id = 'vx2Typing';
+        wrap.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+        msgs.appendChild(wrap); scrollToBottom(true);
+      };
+      const removeTyping = () => byId('vx2Typing')?.remove();
+
       const addMsg = (text, from='bot') => {
         const wrap = document.createElement('div'); wrap.className = `vx2-msg ${from}`;
         const bubble = document.createElement('div'); bubble.className = 'vx2-bubble'; bubble.textContent = text;
-        wrap.appendChild(bubble); msgs.appendChild(wrap); scrollToBottom(); saveState();
+        const meta = document.createElement('small'); meta.className = 'vx2-meta'; meta.textContent = nowTime();
+        bubble.appendChild(meta); wrap.appendChild(bubble); msgs.appendChild(wrap);
+        if (!win.classList.contains('open') && from==='bot'){ unread++; setBadge(unread); }
+        scrollToBottom(); saveState();
       };
 
-      const getFaq = (q) => {
-        const L = q.toLowerCase();
-        for (const f of faq) { if (f.k.some(k => L.includes(k))) return f.r; }
-        return null;
-      };
+      const hoursOk = () => { const d=new Date(), day=d.getDay(), h=d.getHours(); return day>=1 && day<=5 && h>=9 && h<18; };
 
-      // Envoi vers endpoint + Slack (optionnels)
-      const ENDPOINT_URL   = ''; // ex: 'https://worker.example.com/chat'
-      const SLACK_WEBHOOK  = ''; // ex: 'https://hooks.slack.com/services/XXX/YYY/ZZZ'
+      const canned = [
+        { k:["tarif","prix","coût","combien"], r:"Sites vitrine dès 990€ HT. Devis précis après un appel de 15 min. Réponse sous 24h." },
+        { k:["délai","delai","deadline","temps","livraison"], r:"Site vitrine : 7–14 jours. WordPress complet : 2–4 semaines selon le contenu." },
+        { k:["seo","référencement","google"], r:"SEO technique (balises, structure, perfs) + plan d’actions. Objectif PageSpeed 90+." },
+        { k:["wordpress","wp","gutenberg","woo"], r:"WordPress avec thème léger, Gutenberg, Woo, sécurité & sauvegardes." },
+        { k:["maintenance","maj","sécurité","sauvegarde"], r:"MAJ cœur/plug-ins, sauvegardes, monitoring, durcissement sécurité + support." }
+      ];
+      const matchCanned = q => { const L=q.toLowerCase(); for (const c of canned){ if (c.k.some(k=>L.includes(k))) return c.r; } return null; };
 
       const sendAsync = async (txt) => {
-        // Si endpoint configuré, on envoie
         if (ENDPOINT_URL){
-          try{
-            await fetch(ENDPOINT_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ message:txt, at:new Date().toISOString() }) });
-          }catch(e){ /* silencieux */ }
+          try{ await fetch(ENDPOINT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ message:txt, at:new Date().toISOString() })}); }catch(e){}
         }
-        // Slack webhook (notification)
         if (SLACK_WEBHOOK){
-          try{
-            await fetch(SLACK_WEBHOOK, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({ text:`🔔 Nouveau message Vx2 Chat:\n${txt}` }) });
-          }catch(e){ /* silencieux */ }
+          try{ await fetch(SLACK_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ text:`🔔 Nouveau message Vx2 Chat:\n${txt}` })}); }catch(e){}
         }
       };
 
       const reply = async (txt) => {
-        // Si en dehors des heures, proposer l’email
+        addTyping();
+        await new Promise(r=>setTimeout(r, 500 + Math.min(1500, txt.length*20)));
+        removeTyping();
+
         if (!hoursOk()){
-          addMsg("Merci 🙌 Je reviens vers vous aux heures ouvrées. Laissez-moi un email pour une réponse plus rapide.", 'bot');
+          addMsg("Merci 🙌 Je reviens vers vous aux heures ouvrées. Laissez un email pour une réponse rapide.", 'bot');
         }
-        const canned = getFaq(txt);
-        if (canned){ addMsg(canned, 'bot'); }
-        else { addMsg("Bien reçu ! Donnez-moi votre objectif, budget et délai — je vous propose un plan d’action.", 'bot'); }
+        const canned = matchCanned(txt);
+        if (canned) addMsg(canned, 'bot');
+        else addMsg("Bien reçu ! Donnez votre objectif, budget et délai — je vous propose un plan d’action.", 'bot');
+
         sendAsync(txt);
       };
 
@@ -676,30 +733,36 @@
       const focusables = () => [...win.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(el => !el.hasAttribute('disabled'));
       const trapHandler = (e) => {
         if (e.key !== 'Tab') return;
-        const els = focusables(); if (els.length === 0) return;
+        const els = focusables(); if (!els.length) return;
         const first = els[0], last = els[els.length-1];
         if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
         else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
       };
 
-      let lastFocus = null;
       const openChat = () => {
         lastFocus = document.activeElement;
-        win.classList.add('open');
-        launcher.setAttribute('aria-expanded','true');
-        win.removeAttribute('inert');
-        input.focus();
+        win.classList.add('open'); launcher.setAttribute('aria-expanded','true'); win.removeAttribute('inert');
         document.addEventListener('keydown', trapHandler);
         trapStart.addEventListener('focus', () => { const els = focusables(); els.length && els[els.length-1].focus(); });
         trapEnd.addEventListener('focus', () => { const els = focusables(); els.length && els[0].focus(); });
-        scrollToBottom();
+        input.focus();
+        if (!welcomed){
+          addTyping();
+          setTimeout(()=>{ removeTyping(); addMsg("Bonjour ! Comment puis-je vous aider ? (Tarifs, délais, SEO…)", 'bot'); }, 600);
+          welcomed = true; unread = 0; setBadge(0);
+        } else { unread = 0; setBadge(0); }
+        scrollToBottom(true);
       };
       const closeChat = () => {
-        win.classList.remove('open');
-        launcher.setAttribute('aria-expanded','false');
-        win.setAttribute('inert','');
+        win.classList.remove('open'); launcher.setAttribute('aria-expanded','false'); win.setAttribute('inert','');
         document.removeEventListener('keydown', trapHandler);
         lastFocus?.focus?.();
+      };
+
+      const send = () => {
+        const txt = input.value.trim(); if (!txt || cooldown) return;
+        cooldown = true; setTimeout(()=>cooldown=false, 600);
+        addMsg(txt, 'user'); input.value = ''; reply(txt);
       };
 
       // Bootstrap
@@ -707,14 +770,14 @@
       launcher.addEventListener('click', openChat);
       closeBtn.addEventListener('click', closeChat);
       document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape' && win.classList.contains('open')) closeChat(); });
-
-      const send = () => {
-        const txt = input.value.trim(); if (!txt) return;
-        addMsg(txt, 'user'); input.value = '';
-        setTimeout(()=> reply(txt), 220);
-      };
       sendBtn.addEventListener('click', send);
       input.addEventListener('keydown', (e)=>{ if (e.key === 'Enter' && !e.shiftKey){ e.preventDefault(); send(); } });
+
+      // Quick replies
+      quickBar?.addEventListener('click', (e)=>{
+        const btn = e.target.closest('.vx2-chip'); if (!btn) return;
+        input.value = btn.getAttribute('data-q') || ''; send();
+      });
     })();
   </script>
 </body>
