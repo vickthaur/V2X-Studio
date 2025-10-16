@@ -617,8 +617,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   });
 });
-
-/* === CHATBOT Vx2 START — JS (GPT backend) === */
+/* === CHATBOT Vx2 START — JS (ajouté en bas du <script>) === */
 (() => {
   const launcher = byId('vx2ChatLauncher');
   const win = byId('vx2ChatWindow');
@@ -627,11 +626,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   const send = byId('vx2ChatSend');
   const closeBtn = byId('vx2ChatClose');
 
-  // 🔗 RENSEIGNE ICI l'URL complète de ton API (ex: "https://ton-domaine.vercel.app/api/chat")
-  const BACKEND_URL = 'https://TON-ENDPOINT/api/chat';
-
-  // (optionnel) on garde un peu de contexte côté front
-  const history = [];
+  const faq = [
+    { k:["tarif","prix","coût","combien"], r:"Sites vitrine dès 990€ HT. Devis précis après un appel de 15 min. Réponse sous 24h." },
+    { k:["délai","delai","deadline","temps","livraison"], r:"Un site vitrine : 7–14 jours. Un WordPress complet : 2–4 semaines selon contenu." },
+    { k:["seo","référencement","google"], r:"SEO technique inclus (balises, structure, perf) + plan d’actions. Objectif PageSpeed 90+." },
+    { k:["technos","stack","html","wordpress","woocommerce"], r:"HTML/CSS/JS optimisé ou WordPress léger (Gutenberg). Intégrations GA4 / Search Console / Matomo." },
+    { k:["contact","email","téléphone","rdv","devis"], r:"Écrivez à victor.2xstudio@gmail.com ou appelez le 07 85 97 71 64. On cale un créneau rapide." }
+  ];
 
   function add(role, text){
     const row = document.createElement('div');
@@ -642,58 +643,28 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     row.appendChild(bubble);
     msgs.appendChild(row);
     msgs.scrollTop = msgs.scrollHeight;
-    history.push({ role, text, ts: Date.now() });
-    if (history.length > 20) history.shift();
   }
 
-  let typingRow = null;
-  function showTyping(show){
-    if (show) {
-      if (typingRow) return;
-      typingRow = document.createElement('div');
-      typingRow.className = 'vx2-msg bot';
-      const bubble = document.createElement('div');
-      bubble.className = 'vx2-bubble';
-      bubble.textContent = 'Assistant est en train d’écrire…';
-      typingRow.appendChild(bubble);
-      msgs.appendChild(typingRow);
-      msgs.scrollTop = msgs.scrollHeight;
-    } else if (typingRow) {
-      typingRow.remove();
-      typingRow = null;
+  function findReply(t){
+    const s = t.toLowerCase();
+    for(const item of faq){
+      if(item.k.some(k=>s.includes(k))) return item.r;
     }
+    return "Je n’ai pas encore la réponse à ça. Essayez « tarifs », « délais », « SEO », « WordPress » ou « contact ».";
   }
 
-  async function handleSend(){
-    const v = (input.value||'').trim();
+  function handleSend(){
+    const v = (input.value||"").trim();
     if(!v) return;
     add('user', v);
     input.value = '';
-
-    showTyping(true);
-    try{
-      const r = await fetch(BACKEND_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        // Tu peux envoyer l'historique si ton backend le gère
-        body: JSON.stringify({ message: v, history })
-      });
-
-      if (!r.ok) throw new Error('Bad status ' + r.status);
-      const data = await r.json();
-      const reply = data.reply?.toString?.() || "Désolé, je n’ai pas de réponse.";
-      showTyping(false);
-      add('bot', reply);
-    }catch(e){
-      showTyping(false);
-      add('bot', "Erreur côté serveur. Vérifie l’URL de l’API et les CORS.");
-    }
+    setTimeout(()=> add('bot', findReply(v)), 350);
   }
 
   launcher.addEventListener('click', ()=>{
     const open = win.classList.toggle('open');
     if(open && msgs.childElementCount===0){
-      add('bot', "Salut 👋 Je suis l’assistant Vx2 connecté à GPT. Pose tes questions (tarifs, délais, SEO, WordPress…).");
+      add('bot', "Salut 👋 Je suis l’assistant Vx2. Posez vos questions (tarifs, délais, SEO…).");
     }
     if(open) input.focus();
   });
