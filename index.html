@@ -1,41 +1,41 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <!-- Favicon -->
-  <link rel="icon" type="image/webp" href="image/V2XSTUDIO.webp">
-  <meta name="theme-color" content="#0a4466">
+  <!-- ================== META & HEAD ================== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0a4466" />
+  <meta name="description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu. Audit gratuit et devis en 24h." />
+  <meta name="robots" content="index,follow" />
 
-  <!-- Encodage & viewport -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- SEO -->
   <title>Vx2 Studio</title>
-  <meta name="description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu. Audit gratuit et devis en 24h.">
-  <link rel="canonical" href="https://vickthaur.github.io/V2X-Studio/">
+  <link rel="canonical" href="https://vickthaur.github.io/V2X-Studio/" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="image/V2XSTUDIO.webp" />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Vx2 Studio — Sites web rapides, WordPress & SEO">
-  <meta property="og:description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu.">
-  <meta property="og:image" content="https://vickthaur.github.io/V2X-Studio/image/og-cover.jpg">
-  <meta property="og:url" content="https://vickthaur.github.io/V2X-Studio/">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Vx2 Studio — Sites web rapides, WordPress & SEO" />
+  <meta property="og:description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu." />
+  <meta property="og:image" content="https://vickthaur.github.io/V2X-Studio/image/og-cover.jpg" />
+  <meta property="og:url" content="https://vickthaur.github.io/V2X-Studio/" />
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Vx2 Studio — Sites web rapides, WordPress & SEO">
-  <meta name="twitter:description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu.">
-  <meta name="twitter:image" content="https://vickthaur.github.io/V2X-Studio/image/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vx2 Studio — Sites web rapides, WordPress & SEO" />
+  <meta name="twitter:description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu." />
+  <meta name="twitter:image" content="https://vickthaur.github.io/V2X-Studio/image/og-cover.jpg" />
 
   <!-- JSON-LD Organization -->
-  <script> type="application/ld+json">
+  <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Vx2 Studio",
-    "url":"https://vickthaur.github.io/V2X-Studio/",
-    "logo":"https://vickthaur.github.io/V2X-Studio/image/V2XSTUDIO.webp",
-    "sameAs":[
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Vx2 Studio",
+    "url": "https://vickthaur.github.io/V2X-Studio/",
+    "logo": "https://vickthaur.github.io/V2X-Studio/image/V2XSTUDIO.webp",
+    "sameAs": [
       "https://www.instagram.com/v2x.studio/",
       "https://github.com/Vickthaur",
       "https://www.linkedin.com/in/victor-detroux-bb9753234/"
@@ -43,594 +43,895 @@
   }
   </script>
 
-  <!-- (Optionnel) Preload visuels clés -->
-  <link rel="preload" as="image" href="image/V2XSTUDIO.webp">
-  <link rel="preload" as="image" href="image/og-cover.jpg">
+  <!-- Préchargement visuels clés (évite CLS sur le fold) -->
+  <link rel="preload" as="image" href="image/V2XSTUDIO.webp" imagesizes="(max-width: 768px) 120px, 180px" />
+  <link rel="preload" as="image" href="image/og-cover.jpg" />
 
-<style>
-  /* ===== Design System — minimal inspiré Apple ===== */
-  :root{
-    --bg:#0b0b0c;
-    --ink:#f5f7fb;
-    --muted:#adb5c2;
-    --panel:rgba(255,255,255,.06);
-    --bd:rgba(255,255,255,.12);
-    --accent:#e6e6e6;
-    --brand:#0a4466;     /* bleu principal */
-    --brand-2:#136e99;   /* bleu secondaire (hover) */
-    --radius:20px;
-    --shadow:0 20px 60px rgba(0,0,0,.35);
-    --gap:clamp(16px,2.2vw,28px);
-    --pad:clamp(18px,2.6vw,34px);
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0; font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Inter,Roboto,Arial;
-    color:var(--ink);
-    background:
-      radial-gradient(1200px 800px at 80% -10%, rgba(255,255,255,.06), transparent 60%),
-      radial-gradient(1200px 800px at 10% -20%, rgba(255,255,255,.08), transparent 60%),
-      linear-gradient(180deg,#0a0a0b,#111214 30%,#0b0b0c);
-    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-  }
-  img{max-width:100%; display:block}
-  .container{width:min(1200px,100% - 56px); margin-inline:auto}
-  .section{padding:clamp(52px,7vw,120px) 0; content-visibility:auto; contain-intrinsic-size:1px 800px}
+  <!-- ================== STYLES ================== -->
+  <style>
+    /* ===== Design System — minimal inspiré Apple ===== */
+    :root{
+      --bg: #0b0b0c;
+      --ink: #f5f7fb;
+      --muted: #adb5c2;
+      --panel: rgba(255,255,255,.06);
+      --bd: rgba(255,255,255,.12);
+      --accent: #e6e6e6;
+      --brand: #0a4466;   /* bleu principal */
+      --brand-2: #136e99; /* bleu secondaire (hover) */
+      --radius: 20px;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --gap: clamp(16px, 2.2vw, 28px);
+      --pad: clamp(18px, 2.6vw, 34px);
+      --container-w: 1200px;
+    }
 
+    /* Reset & base */
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
+    body{
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(255,255,255,.06), transparent 60%),
+        radial-gradient(1200px 800px at 10% -20%, rgba(255,255,255,.08), transparent 60%),
+        linear-gradient(180deg, #0a0a0b, #111214 30%, #0b0b0c);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-  /* ===== Header — logo + H1 (ultra simple) ===== */
-  header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(12px); background:rgba(12,12,14,.45); border-bottom:1px solid var(--bd)}
-  .head-wrap{display:grid; place-items:center; gap:8px; padding:16px 0}
-  .logo{width:90px; height:auto; filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
-  h1{margin:0; font-weight:800; letter-spacing:-.02em; text-align:center; font-size:clamp(24px,3.8vw,44px)}
+    img{ max-width: 100%; display: block; height: auto; }
+    a{
+      color: inherit;
+      text-decoration: none;
+      transition: color .2s ease, opacity .2s ease;
+    }
+    a:hover{ color: var(--brand-2); opacity: .9; }
 
-  /* ===== Hero ===== */
-  .hero{position:relative; overflow:hidden}
-  .hero .wrap{display:grid; grid-template-columns:1.05fr .95fr; gap:var(--gap); align-items:center; padding:clamp(48px,8vw,120px) 0}
-  .badge{display:inline-block; padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.08); border:1px solid var(--bd); color:var(--ink); font-weight:700; letter-spacing:.08em; font-size:12px; text-transform:uppercase}
-  .lead{color:var(--muted); font-size:clamp(16px,1.2vw,19px); margin:10px 0 0}
-  .actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
-  .btn{display:inline-grid; place-items:center; padding:12px 18px; border-radius:14px; font-weight:700; text-decoration:none}
-  .btn.primary{background:#fff; color:#111 !important; box-shadow:0 10px 32px rgba(255,255,255,.12)}
-  .btn.primary:hover{background:var(--brand); color:#fff !important}
-  .btn.ghost{border:1px solid var(--bd); background:rgba(255,255,255,.04); color:var(--ink)}
-  .btn.ghost:hover{background:rgba(255,255,255,.08)}
-  .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px}
-  .kpi{padding:14px; border-radius:14px; border:1px solid var(--bd); background:var(--panel); backdrop-filter:blur(12px); box-shadow:var(--shadow)}
-  .kpi b{font-size:20px}
-  @media (max-width:900px){ .hero .wrap{grid-template-columns:1fr} .kpis{grid-template-columns:1fr} }
+    .container{ width: min(var(--container-w), 100% - 56px); margin-inline: auto; }
+    .section{
+      padding: clamp(52px, 7vw, 120px) 0;
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 800px; /* hint layout */
+    }
 
-  /* Card verre */
-  .card{background:var(--panel); border:1px solid var(--bd); border-radius:var(--radius); padding:var(--pad); box-shadow:var(--shadow); backdrop-filter:blur(10px)}
-  .card .media{width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:16px}
+    /* ===== Header ===== */
+    header{
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: saturate(140%) blur(12px);
+      background: rgba(12,12,14,.45);
+      border-bottom: 1px solid var(--bd);
+    }
+    .head-wrap{
+      display: grid; place-items: center; gap: 8px; padding: 16px 0;
+    }
+    .logo{ width: 90px; height: auto; filter: drop-shadow(0 6px 18px rgba(0,0,0,.35)); }
+    h1{
+      margin: 0;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      text-align: center;
+      font-size: clamp(24px, 3.8vw, 44px);
+    }
 
-  /* Sections typées */
-  .section-head{display:flex; justify-content:space-between; align-items:flex-end; gap:12px; margin-bottom:16px}
-  h2{margin:0; font-size:clamp(22px,2.8vw,34px); letter-spacing:-.01em}
-  .muted{color:var(--muted)}
-  .grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
-  .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-  @media (max-width:1024px){ .grid-4{grid-template-columns:repeat(2,1fr)} .grid-3{grid-template-columns:repeat(2,1fr)} }
-  @media (max-width:640px){ .grid-4,.grid-3{grid-template-columns:1fr} }
-  .card h3{margin:0 0 6px; font-size:18px}
-  .card p{margin:0; color:var(--muted)}
+    /* ===== Hero ===== */
+    .hero{ position: relative; overflow: hidden; }
+    .hero .wrap{
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: var(--gap);
+      align-items: center;
+      padding: clamp(48px, 8vw, 120px) 0;
+    }
+    .badge{
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--bd);
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: .08em;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .lead{ color: var(--muted); font-size: clamp(16px, 1.2vw, 19px); margin: 10px 0 0; }
 
-  /* Pricing */
-  .pricing{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px}
-  .price{padding:var(--pad); text-align:center}
-  .price .tag{font-size:22px; font-weight:800; margin-bottom:6px}
-  .price ul{list-style:none; padding:0; margin:10px 0 0}
-  .price ul li{border-top:1px solid var(--bd); padding:8px 0; font-size:.98rem}
-  .badge-reco{display:inline-block; background:#fff; color:#111; border-radius:999px; padding:6px 12px; font-weight:800; font-size:.8rem; margin-bottom:10px}
+    .actions{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .btn{
+      display: inline-grid; place-items: center;
+      padding: 12px 18px; border-radius: 14px; font-weight: 700; text-decoration: none;
+    }
+    .btn.primary{ background: #fff; color: #111 !important; box-shadow: 0 10px 32px rgba(255,255,255,.12); }
+    .btn.primary:hover{ background: var(--brand); color: #fff !important; }
+    .btn.ghost{ border: 1px solid var(--bd); background: rgba(255,255,255,.04); color: var(--ink); }
+    .btn.ghost:hover{ background: rgba(255,255,255,.08); }
 
-  /* CTA bande */
-  .cta-band{text-align:center; padding:var(--pad); border-radius:var(--radius); border:1px solid var(--bd); background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03)); box-shadow:var(--shadow); backdrop-filter:blur(10px)}
+    .kpis{
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 10px; margin-top: 14px;
+    }
+    .kpi{
+      padding: 14px; border-radius: 14px;
+      border: 1px solid var(--bd); background: var(--panel);
+      backdrop-filter: blur(12px); box-shadow: var(--shadow);
+    }
+    .kpi b{ font-size: 20px; }
 
-  /* Form */
-  form{display:grid; gap:12px}
-  .two{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-  @media (max-width:720px){ .two{grid-template-columns:1fr} }
-  input,textarea,select{width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--bd); background:rgba(255,255,255,.06); color:var(--ink)}
-  input::placeholder,textarea::placeholder{color:#9aa3b2}
-  input:focus,textarea:focus,select:focus{outline:2px solid rgba(255,255,255,.22)}
-  .status{font-size:.95rem}
+    @media (max-width: 900px){
+      .hero .wrap{ grid-template-columns: 1fr; }
+      .kpis{ grid-template-columns: 1fr; }
+    }
 
-  /* Footer (verre, moderne) */
-  .footer{
-    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    backdrop-filter:blur(12px);
-    border-top:1px solid var(--bd);
-  }
-  .footer__container{ padding:28px 0 }
-  .footer-cta{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px; border-radius:16px; background:rgba(255,255,255,.06); border:1px solid var(--bd)}
-  .footer-cta__actions{ display:flex; gap:10px; flex-wrap:wrap }
+    /* Card verre */
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--bd);
+      border-radius: var(--radius);
+      padding: var(--pad);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .card .media{
+      width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 16px;
+    }
 
-  .footer-grid{ display:grid; gap:24px; margin-top:18px; grid-template-columns:repeat(3, 1fr) }
-  .footer-col{ min-width:0 }
-  .footer-title{ margin:0 0 8px; font-size:1rem; font-weight:700 }
-  .footer-list{ list-style:none; padding:0; margin:0; line-height:1.9 }
-  .footer-list a{ text-decoration:none }
-  .footer-brand{ display:flex; align-items:center; gap:10px; margin-bottom:10px }
-  .footer-brand__logo{ width:34px; height:auto; border-radius:10px }
-  .footer-social{ display:flex; gap:10px; margin-top:12px }
-  .footer-social__btn{ display:grid; place-items:center; width:36px; height:36px; border-radius:999px; border:1px solid var(--bd); background:rgba(255,255,255,.04); text-decoration:none }
-  .footer-sep{ border:none; border-top:1px solid var(--bd); margin:22px 0 }
-  .footer-bottom{ display:flex; gap:10px; justify-content:space-between; align-items:center; flex-wrap:wrap; color:var(--muted); font-size:.95rem }
-  .footer-legal{ display:flex; gap:12px; align-items:center }
+    /* Sections */
+    .section-head{
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 12px; margin-bottom: 16px;
+    }
+    h2{ margin: 0; font-size: clamp(22px, 2.8vw, 34px); letter-spacing: -.01em; }
+    .muted{ color: var(--muted); }
 
-  @media (max-width:900px){
-    .footer-grid{ grid-template-columns:1fr 1fr }
-  }
-  @media (max-width:600px){
-    .footer-cta{ flex-direction:column; align-items:flex-start }
-    .footer-grid{ grid-template-columns:1fr }
-  }
+    .grid-4{ display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+    .grid-3{ display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+    @media (max-width: 1024px){
+      .grid-4{ grid-template-columns: repeat(2,1fr); }
+      .grid-3{ grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 640px){
+      .grid-4, .grid-3{ grid-template-columns: 1fr; }
+    }
+    .card h3{ margin: 0 0 6px; font-size: 18px; }
+    .card p{ margin: 0; color: var(--muted); }
 
-  /* Micro-animations */
-  .reveal{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
-  .reveal.show{opacity:1; transform:none}
-  .mockup-tilt{transform:perspective(1000px) rotateX(0) rotateY(0); transition:transform .2s ease}
-  @media (prefers-reduced-motion: reduce){
-    .reveal{opacity:1; transform:none}
-    .mockup-tilt{transition:none}
-  }
+    /* Pricing */
+    .pricing{
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;
+    }
+    .price{ padding: var(--pad); text-align: center; }
+    .price .tag{ font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .price ul{ list-style: none; padding: 0; margin: 10px 0 0; }
+    .price ul li{ border-top: 1px solid var(--bd); padding: 8px 0; font-size: .98rem; }
+    .badge-reco{
+      display: inline-block; background: #fff; color: #111;
+      border-radius: 999px; padding: 6px 12px; font-weight: 800; font-size: .8rem; margin-bottom: 10px;
+    }
 
-  /* Liens modernes */
-  a{ color:inherit; text-decoration:none; transition:color .2s ease, opacity .2s ease }
-  a:hover{ color:var(--brand-2); opacity:.9 }
-  .footer a{ color:var(--ink) }
-  .footer a:hover{ color:var(--brand-2) }
+    /* CTA bande */
+    .cta-band{
+      text-align: center; padding: var(--pad); border-radius: var(--radius);
+      border: 1px solid var(--bd);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow); backdrop-filter: blur(10px);
+    }
 
-  /* === CHATBOT Vx2 START — CSS (ajouté en bas du <style>) === */
-  .vx2-chat-launcher{
-    position:fixed; right:20px; bottom:20px; z-index:1000;
-    width:56px; height:56px; border-radius:999px; border:none; cursor:pointer;
-    display:grid; place-items:center; color:#fff; background:var(--brand);
-    box-shadow:0 10px 28px rgba(0,0,0,.25);
-  }
-  .vx2-chat-launcher:hover{filter:brightness(1.05)}
-  .vx2-chat-window{
-    position:fixed; right:20px; bottom:90px; z-index:1000;
-    width:360px; max-width:calc(100vw - 40px);
-    background:#0f1115; color:var(--ink);
-    border:1px solid var(--bd); border-radius:16px; display:none; flex-direction:column;
-    box-shadow:0 22px 60px rgba(0,0,0,.35); overflow:hidden;
-  }
-  .vx2-chat-window.open{display:flex}
-  .vx2-chat-header{
-    display:flex; justify-content:space-between; align-items:center; gap:8px;
-    padding:10px 12px; background:linear-gradient(135deg,var(--brand),#12a4d9); color:#fff;
-  }
-  .vx2-chat-header h3{margin:0; font-size:15px}
-  .vx2-chat-close{background:transparent; border:none; color:#fff; font-size:22px; cursor:pointer}
-  .vx2-chat-messages{height:360px; overflow:auto; padding:12px; background:rgba(255,255,255,.03)}
-  .vx2-msg{display:flex; gap:10px; margin:8px 0}
-  .vx2-msg.user{justify-content:flex-end}
-  .vx2-bubble{max-width:80%; padding:9px 11px; border-radius:12px; font-size:14px; line-height:1.35}
-  .vx2-msg.user .vx2-bubble{background:#dbeafe; color:#0b1220; border:1px solid #bcd7ff}
-  .vx2-msg.bot .vx2-bubble{background:rgba(255,255,255,.06); border:1px solid var(--bd)}
-  .vx2-chat-input{display:flex; gap:8px; padding:10px; border-top:1px solid var(--bd); background:rgba(255,255,255,.02)}
-  .vx2-chat-input input{flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--bd); background:rgba(255,255,255,.06); color:var(--ink)}
-  .vx2-chat-input button{border:1px solid #0ea5e9; background:#0ea5e9; color:#fff; border-radius:12px; padding:10px 14px; cursor:pointer}
-  @media (max-height:640px){ .vx2-chat-messages{height:260px} }
-  /* === CHATBOT Vx2 END — CSS === */
+    /* Formulaire */
+    form{ display: grid; gap: 12px; }
+    .two{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 720px){ .two{ grid-template-columns: 1fr; } }
+
+    input, textarea, select{
+      width: 100%; padding: 12px 14px; border-radius: 12px;
+      border: 1px solid var(--bd);
+      background: rgba(255,255,255,.06); color: var(--ink);
+    }
+    input::placeholder, textarea::placeholder{ color: #9aa3b2; }
+    input:focus, textarea:focus, select:focus{ outline: 2px solid rgba(255,255,255,.22); }
+    .status{ font-size: .95rem; }
+
+    /* Footer */
+    .footer{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--bd);
+    }
+    .footer__container{ padding: 28px 0; }
+    .footer-cta{
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 16px; border-radius: 16px; background: rgba(255,255,255,.06); border: 1px solid var(--bd);
+    }
+    .footer-cta__actions{ display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .footer-grid{
+      display: grid; gap: 24px; margin-top: 18px; grid-template-columns: repeat(3, 1fr);
+    }
+    .footer-col{ min-width: 0; }
+    .footer-title{ margin: 0 0 8px; font-size: 1rem; font-weight: 700; }
+    .footer-list{ list-style: none; padding: 0; margin: 0; line-height: 1.9; }
+    .footer-list a{ text-decoration: none; }
+    .footer-brand{ display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .footer-brand__logo{ width: 34px; height: auto; border-radius: 10px; }
+    .footer-social{ display: flex; gap: 10px; margin-top: 12px; }
+    .footer-social__btn{
+      display: grid; place-items: center; width: 36px; height: 36px; border-radius: 999px;
+      border: 1px solid var(--bd); background: rgba(255,255,255,.04); text-decoration: none;
+    }
+    .footer-sep{ border: none; border-top: 1px solid var(--bd); margin: 22px 0; }
+    .footer-bottom{
+      display: flex; gap: 10px; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; color: var(--muted); font-size: .95rem;
+    }
+    .footer-legal{ display: flex; gap: 12px; align-items: center; }
+
+    @media (max-width: 900px){
+      .footer-grid{ grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px){
+      .footer-cta{ flex-direction: column; align-items: flex-start; }
+      .footer-grid{ grid-template-columns: 1fr; }
+    }
+
+    /* Micro-animations */
+    .reveal{ opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.show{ opacity: 1; transform: none; }
+    .mockup-tilt{ transform: perspective(1000px) rotateX(0) rotateY(0); transition: transform .2s ease; }
+    @media (prefers-reduced-motion: reduce){
+      .reveal{ opacity: 1; transform: none; }
+      .mockup-tilt{ transition: none; }
+    }
+
+    /* Liens dans le footer : couleur constante + hover */
+    .footer a{ color: var(--ink); }
+    .footer a:hover{ color: var(--brand-2); }
+
+    /* ===== CHATBOT Vx2 — Styles ===== */
+    .vx2-chat-launcher{
+      position: fixed; right: 20px; bottom: 20px; z-index: 1000;
+      width: 56px; height: 56px; border-radius: 999px; border: none; cursor: pointer;
+      display: grid; place-items: center; color: #fff; background: var(--brand);
+      box-shadow: 0 10px 28px rgba(0,0,0,.25);
+    }
+    .vx2-chat-launcher:hover{ filter: brightness(1.05); }
+
+    .vx2-chat-window{
+      position: fixed; right: 20px; bottom: 90px; z-index: 1000;
+      width: 360px; max-width: calc(100vw - 40px);
+      background: #0f1115; color: var(--ink);
+      border: 1px solid var(--bd); border-radius: 16px;
+      display: none; flex-direction: column;
+      box-shadow: 0 22px 60px rgba(0,0,0,.35); overflow: hidden;
+    }
+    .vx2-chat-window.open{ display: flex; }
+
+    .vx2-chat-header{
+      display: flex; justify-content: space-between; align-items: center; gap: 8px;
+      padding: 10px 12px; background: linear-gradient(135deg, var(--brand), #12a4d9); color: #fff;
+    }
+    .vx2-chat-header h3{ margin: 0; font-size: 15px; }
+    .vx2-chat-close{ background: transparent; border: none; color: #fff; font-size: 22px; cursor: pointer; }
+
+    .vx2-chat-messages{
+      height: 360px; overflow: auto; padding: 12px; background: rgba(255,255,255,.03);
+    }
+    .vx2-msg{ display: flex; gap: 10px; margin: 8px 0; }
+    .vx2-msg.user{ justify-content: flex-end; }
+    .vx2-bubble{
+      max-width: 80%; padding: 9px 11px; border-radius: 12px; font-size: 14px; line-height: 1.35;
+      word-wrap: break-word; white-space: pre-wrap;
+    }
+    .vx2-msg.user .vx2-bubble{ background: #dbeafe; color: #0b1220; border: 1px solid #bcd7ff; }
+    .vx2-msg.bot  .vx2-bubble{ background: rgba(255,255,255,.06); border: 1px solid var(--bd); }
+
+    .vx2-chat-input{
+      display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--bd); background: rgba(255,255,255,.02);
+    }
+    .vx2-chat-input input{
+      flex: 1; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--bd);
+      background: rgba(255,255,255,.06); color: var(--ink);
+    }
+    .vx2-chat-input button{
+      border: 1px solid #0ea5e9; background: #0ea5e9; color: #fff; border-radius: 12px; padding: 10px 14px; cursor: pointer;
+    }
+
+    @media (max-height: 640px){ .vx2-chat-messages{ height: 260px; } }
   </style>
 </head>
+
 <body>
+  <!-- ================== HEADER ================== -->
+  <header>
+    <div class="container head-wrap">
+      <img class="logo" src="image/V2XSTUDIO.webp" alt="Vx2 Studio" width="180" height="180" />
+      <h1>Sites web qui respirent. Performances qui convainquent.</h1>
+    </div>
+  </header>
 
-<!-- ===== Header (logo + H1) ===== -->
-<header>
-  <div class="container head-wrap">
-    <img class="logo" src="image/V2XSTUDIO.webp" alt="Vx2 Studio">
-    <h1>Sites web qui respirent. Performances qui convainquent.</h1>
-  </div>
-</header>
+  <!-- ================== MAIN ================== -->
+  <main id="top">
+    <!-- ===== HERO ===== -->
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="container wrap">
+        <div class="reveal">
+          <span class="badge" aria-label="Compétences principales">
+            Freelance — HTML/CSS/JS · WordPress · SEO
+          </span>
 
-<main id="top">
-  <!-- ===== HERO ===== -->
-  <section class="hero section">
-    <div class="container wrap">
-      <div class="reveal">
-        <span class="badge">Freelance — HTML/CSS/JS · WordPress · SEO</span>
-          <div style="height:20px"></div>
-        <p class="lead">Des interfaces sobres, rapides et pensées pour la conversion. Vous gardez la main — je m’occupe du code, du SEO et des perfs.</p>
-        <div style="height:20px"></div>
-        <div class="actions">
-          <a class="btn primary" href="#contact" aria-label="Ouvrir le formulaire de contact">Audit SEO gratuit</a>
-          <a class="btn ghost" href="#services">Voir les services</a>
-            <div style="height:20px"></div>
+          <p id="hero-title" class="lead">
+            Des interfaces sobres, rapides et pensées pour la conversion. Vous gardez la main — je m’occupe du code, du SEO et des perfs.
+          </p>
+
+          <div class="actions" aria-label="Actions principales">
+            <a class="btn primary" href="#contact" aria-label="Ouvrir le formulaire de contact">
+              Audit SEO gratuit
+            </a>
+            <a class="btn ghost" href="#services">Voir les services</a>
+          </div>
+
+          <div class="kpis" aria-label="Indicateurs clés">
+            <div class="kpi">
+              <b>⚡ 90+ PageSpeed</b><br />
+              <span class="muted">Objectif réaliste</span>
+            </div>
+            <div class="kpi">
+              <b>7–14 jours</b><br />
+              <span class="muted">Site vitrine</span>
+            </div>
+            <div class="kpi">
+              <b>SEO prêt</b><br />
+              <span class="muted">Balises & schémas</span>
+            </div>
+          </div>
         </div>
-        <div class="kpis">
-          <div class="kpi"><b>⚡ 90+ PageSpeed</b><br><span class="muted">Objectif réaliste</span></div>
-          <div class="kpi"><b>7–14 jours</b><br><span class="muted">Site vitrine</span></div>
-          <div class="kpi"><b>SEO prêt</b><br><span class="muted">Balises & schémas</span></div>
+
+        <aside class="card reveal" aria-label="Illustration produit">
+          <img
+            class="media mockup-tilt"
+            src="image/image-top.gif"
+            alt="Mockup du site Vx2 Studio sur ordinateur portable et mobile"
+            width="1280"
+            height="800"
+            loading="eager"
+            decoding="sync"
+          />
+          <p class="muted" style="margin-top:10px">Responsive • Core Web Vitals • Tracking RGPD</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="services-title">💼 Services</h2>
+        </div>
+
+        <div class="grid-4">
+          <article class="card reveal" aria-label="Service HTML/CSS/JS">
+            <h3>💻 HTML / CSS / JS</h3>
+            <p>Vitrines ultra-rapides, accessibilité, animations subtiles.</p>
+          </article>
+
+          <article class="card reveal" aria-label="Service WordPress">
+            <h3>🧩 WordPress</h3>
+            <p>Thème léger, Gutenberg, Woo, sécurité & sauvegardes.</p>
+          </article>
+
+          <article class="card reveal" aria-label="Service SEO">
+            <h3>🚀 SEO</h3>
+            <p>Audit, on-page, schema.org, plan éditorial & référencement local.</p>
+          </article>
+
+          <article class="card reveal" aria-label="Service Création de logo">
+            <h3>🎨 Création de Logo</h3>
+            <p>Conseil créatif, conception & déclinaisons.</p>
+          </article>
         </div>
       </div>
-      <aside class="card reveal" aria-label="Illustration">
-        <img
-          class="media mockup-tilt"
-          src="image/image-top.gif"
-          alt="Mockup du site Vx2 Studio sur ordinateur portable et mobile"
-          style="width:100%;height:auto;border-radius:16px"
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section id="portfolio" class="section" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="portfolio-title">Portfolio</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal">
+            <img
+              class="media"
+              src="image/image-logo.webp"
+              alt="Exemple de logo"
+              width="1200"
+              height="750"
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+            <h3 style="margin:10px 0 0">Création de Logo</h3>
+            <p class="muted">Sur demande</p>
+          </article>
+
+          <article class="card reveal">
+            <a
+              href="https://vickthaur.github.io/GO2INNOV/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="display:block; color:inherit;"
+              aria-label="Voir une landing page HTML dans un nouvel onglet"
+            >
+              <img
+                class="media"
+                src="image/Landing-page.webp"
+                alt="Landing page HTML"
+                width="1200"
+                height="750"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              />
+              <h3 style="margin:10px 0 0">Landing page HTML</h3>
+              <p class="muted">Délai 1 semaine</p>
+            </a>
+          </article>
+
+          <article class="card reveal">
+            <img
+              class="media"
+              src="image/SEO.webp"
+              alt="Optimisation SEO"
+              width="1200"
+              height="750"
+              loading="lazy"
+              decoding="async"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            />
+            <h3 style="margin:10px 0 0">Optimisation et conseil SEO</h3>
+            <p class="muted">Search Console • Analytics • PageSpeed Insights</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TARIFS ===== -->
+    <section id="prix" class="section" aria-labelledby="pricing-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="pricing-title">Tarifs</h2>
+        </div>
+
+        <div class="pricing" aria-label="Offres et tarifs">
+          <article class="card price reveal">
+            <div class="tag">Starter — 300€</div>
+            <p class="muted">Jusqu’à 5 pages, optimisation de base.</p>
+            <ul>
+              <li>HTML/CSS/JS ou WP léger</li>
+              <li>Formulaire & hébergement</li>
+              <li>Indexation Google</li>
+            </ul>
+          </article>
+
+          <article class="card price reveal" aria-label="Offre recommandée">
+            <span class="badge-reco">Recommandé</span>
+            <div class="tag">Business WP — 600€ + 49€/mois</div>
+            <p class="muted">Thème sur-mesure, blog, SEO avancé, maintenance.</p>
+            <ul>
+              <li>10 pages + blog</li>
+              <li>Schema.org & tracking</li>
+              <li>Sauvegardes & sécurité</li>
+            </ul>
+          </article>
+
+          <article class="card price reveal">
+            <div class="tag">SEO Boost — 490€/mois</div>
+            <p class="muted">Audit, optimisations mensuelles, reporting.</p>
+            <ul>
+              <li>Roadmap SEO</li>
+              <li>3 pages optimisées / mois</li>
+              <li>Suivi positions</li>
+            </ul>
+          </article>
+
+          <article class="card price reveal">
+            <div class="tag">Création Logo — 100€ minimum</div>
+            <p class="muted">RDV + création selon brief</p>
+            <ul>
+              <li>Photoshop • Illustrator • Canva</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="muted" style="margin-top:6px">Tarifs HT — devis précis selon besoin.</p>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="container cta-band section" aria-labelledby="cta">
+      <h2 id="cta" class="reveal">Parlons de votre projet</h2>
+      <p class="muted reveal">Un audit SEO rapide et des actions concrètes.</p>
+      <p class="reveal"><a class="btn primary" href="#contact">Me contacter</a></p>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 id="contact-title">Contact & devis</h2>
+          <p class="muted">Réponse sous 24h ouvrées.</p>
+        </div>
+
+        <form
+          id="lead"
+          class="card reveal"
+          action="https://formspree.io/f/mvgwdrqo"
+          method="POST"
+          novalidate
+          aria-describedby="status"
         >
-        <p class="muted" style="margin-top:10px">Responsive • Core Web Vitals • Tracking RGPD</p>
-      </aside>
-    </div>
-  </section>
+          <div class="two">
+            <p>
+              <label for="nom">Nom <span aria-hidden="true">*</span></label><br />
+              <input id="nom" name="nom" required placeholder="Nom Prénom" autocomplete="name" />
+            </p>
+            <p>
+              <label for="email">Email <span aria-hidden="true">*</span></label><br />
+              <input id="email" name="email" type="email" required placeholder="vous@entreprise.com" autocomplete="email" />
+            </p>
+          </div>
 
-  <!-- ===== SERVICES ===== -->
-  <section id="services" class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>💼 Services</h2>
+          <div class="two">
+            <p>
+              <label for="service">Service</label><br />
+              <select id="service" name="service">
+                <option>Site vitrine (HTML)</option>
+                <option>WordPress</option>
+                <option>WooCommerce</option>
+                <option>SEO</option>
+                <option>Maintenance</option>
+                <option>Création de Logo</option>
+              </select>
+            </p>
+            <p>
+              <label for="tel">Téléphone</label><br />
+              <input id="tel" name="telephone" inputmode="tel" placeholder="Optionnel" autocomplete="tel" />
+            </p>
+          </div>
+
+          <p>
+            <label for="message">Votre besoin</label><br />
+            <textarea id="message" name="message" rows="5" placeholder="Objectifs, pages, deadline, exemples…"></textarea>
+          </p>
+
+          <p style="display:flex;align-items:center;gap:8px">
+            <input id="rgpd" name="rgpd" type="checkbox" required />
+            <label for="rgpd">J’accepte d’être recontacté par Vx2 Studio.</label>
+          </p>
+
+          <!-- Anti-spam -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_subject" value="Nouveau lead — Vx2 Studio" />
+
+          <p>
+            <button class="btn primary" type="submit">Envoyer</button>
+            <span id="status" class="status muted" role="status" aria-live="polite"></span>
+          </p>
+        </form>
       </div>
+    </section>
+  </main>
 
-      <div class="grid-4">
-        <article class="card reveal">
-          <h3>💻 HTML / CSS / JS</h3>
-          <p>Vitrines ultra-rapides, accessibilité, animations subtiles.</p>
-        </article>
-
-        <article class="card reveal">
-          <h3>🧩 WordPress</h3>
-          <p>Thème léger, Gutenberg, Woo, sécurité & sauvegardes.</p>
-        </article>
-
-        <article class="card reveal">
-          <h3>🚀 SEO</h3>
-          <p>Audit, on-page, schema.org, plan éditorial & référencement local.</p>
-        </article>
-
-        <article class="card reveal">
-          <h3>🎨 Création de Logo</h3>
-          <p>Conseil créatif / Concepteur / Designer</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PORTFOLIO ===== -->
-  <section id="portfolio" class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>Portfolio</h2>
-      </div>
-      <div class="grid-3">
-        <article class="card reveal">
-          <img class="media" src="image/image-logo.webp" alt="Exemple de logo" loading="lazy" decoding="async">
-          <h3 style="margin:10px 0 0">Création de Logo</h3>
-          <p class="muted">Sur demande</p>
-        </article>
-
-        <article class="card reveal">
-          <a href="https://vickthaur.github.io/GO2INNOV/" target="_blank" rel="noopener noreferrer" style="display:block; color:inherit;">
-            <img class="media" src="image/Landing-page.webp" alt="Landing page HTML" loading="lazy" decoding="async">
-            <h3 style="margin:10px 0 0">Landing page HTML</h3>
-            <p class="muted">Délai 1 semaine</p>
-          </a>
-        </article>
-
-        <article class="card reveal">
-          <img class="media" src="image/SEO.webp" alt=" Optimisation SEO" loading="lazy" decoding="async">
-          <h3 style="margin:10px 0 0">Optimisation et conseil SEO</h3>
-          <p class="muted">Yoast SEO • Google Search Console • Google Analytics • PageSpeed Insights</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== TARIFS ===== -->
-  <section id="prix" class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2>Tarifs</h2>
-      </div>
-      <div class="pricing">
-        <article class="card price reveal">
-          <div class="tag">Starter — 300€</div>
-          <p class="muted">Jusqu’à 5 pages, optimisation de base.</p>
-          <ul>
-            <li>HTML/CSS/JS ou WP léger</li>
-            <li>Formulaire & hébergement</li>
-            <li>Indexation Google</li>
-          </ul>
-        </article>
-
-        <article class="card price reveal">
-          <span class="badge-reco">Recommandé</span>
-          <div class="tag">Business WP — 600€ + 49€/mois</div>
-          <p class="muted">Thème sur-mesure, blog, SEO avancé, maintenance.</p>
-          <ul>
-            <li>10 pages + blog</li>
-            <li>Schema.org & tracking</li>
-            <li>Sauvegardes & sécurité</li>
-          </ul>
-        </article>
-
-        <article class="card price reveal">
-          <div class="tag">SEO Boost — 490€/mois</div>
-          <p class="muted">Audit, optimisations mensuelles, reporting.</p>
-          <ul>
-            <li>Roadmap SEO</li>
-            <li>3 pages optimisées / mois</li>
-            <li>Suivi positions</li>
-          </ul>
-        </article>
-
-         <article class="card price reveal">
-          <div class="tag">Création Logo — 100€/minimum</div>
-          <p class="muted">RDV + création sur demande précise</p>
-          <ul>
-            <li>photoshop • canva • Illustrator</li>
-          </ul>
-        </article>
-      </div>
-      <p class="muted" style="margin-top:6px">Tarifs HT — devis précis selon besoin.</p>
-    </div>
-  </section>
-
-  <!-- ===== CTA ===== -->
-  <section class="container cta-band section" aria-labelledby="cta">
-    <h2 id="cta" class="reveal">Parlons de votre projet</h2>
-    <p class="muted reveal">Un audit SEO rapide et des actions concrètes.</p>
-    <p class="reveal"><a class="btn primary" href="#contact">Me contacter</a></p>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact" class="section" aria-labelledby="contact-title">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 id="contact-title">Contact & devis</h2>
-        <p class="muted">Réponse sous 24h ouvrées.</p>
-      </div>
-      <form id="lead" class="card reveal" action="https://formspree.io/f/mvgwdrqo" method="POST" novalidate>
-        <div class="two">
-          <p><label for="nom">Nom *</label><br>
-            <input id="nom" name="nom" required placeholder="Nom Prénom" autocomplete="name"></p>
-          <p><label for="email">Email *</label><br>
-            <input id="email" name="email" type="email" required placeholder="vous@entreprise.com" autocomplete="email"></p>
+  <!-- ================== FOOTER ================== -->
+  <footer id="footer" class="footer" role="contentinfo">
+    <div class="container footer__container">
+      <!-- CTA haut de footer -->
+      <div class="footer-cta card reveal" aria-label="Contact rapide">
+        <div class="footer-cta__text">
+          <h3>Discutons de votre projet</h3>
+          <p class="muted">Site vitrine, WordPress ou SEO — réponse sous 24h.</p>
         </div>
-        <div class="two">
-          <p><label for="service">Service</label><br>
-            <select id="service" name="service">
-              <option>Site vitrine (HTML)</option>
-              <option>WordPress</option>
-              <option>WooCommerce</option>
-              <option>SEO</option>
-              <option>Maintenance</option>
-              <option>Création de Logo</option>
-            </select></p>
-          <p><label for="tel">Téléphone</label><br>
-            <input id="tel" name="telephone" placeholder="Optionnel"></p>
+        <div class="footer-cta__actions">
+          <a class="btn ghost" href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener noreferrer">📸 Prendre RDV</a>
         </div>
-        <p><label for="message">Votre besoin</label><br>
-          <textarea id="message" name="message" rows="5" placeholder="Objectifs, pages, deadline, exemples…"></textarea></p>
-        <p style="display:flex;align-items:center;gap:8px">
-          <input id="rgpd" type="checkbox" required>
-          <label for="rgpd">J’accepte d’être recontacté par Vx2 Studio.</label>
-        </p>
-        <input type="text" name="_gotcha" style="display:none">
-        <input type="hidden" name="_subject" value="Nouveau lead — Vx2 Studio">
-        <p>
-          <button class="btn primary" type="submit">Envoyer</button>
-          <span id="status" class="status muted" role="status" aria-live="polite"></span>
-        </p>
-      </form>
-    </div>
-  </section>
-</main>
-
-<footer id="footer" class="footer">
-  <div class="container footer__container">
-    <!-- CTA haut de footer -->
-    <div class="footer-cta card reveal">
-      <div class="footer-cta__text">
-        <h3>Discutons de votre projet</h3>
-        <p class="muted">Site vitrine, WordPress ou SEO — réponse sous 24h.</p>
       </div>
-      <div class="footer-cta__actions">
-        <a class="btn ghost" href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener noreferrer">📸 Prendre RDV</a>
+
+      <!-- Grille infos -->
+      <div class="footer-grid reveal">
+        <!-- Brand -->
+        <section class="footer-col" aria-label="À propos">
+          <div class="footer-brand">
+            <img src="image/V2XSTUDIO.webp" alt="Vx2 Studio" class="footer-brand__logo" width="68" height="68" />
+            <strong>Vx2 Studio</strong>
+          </div>
+          <p class="muted">Sites rapides, WordPress léger & SEO efficace.</p>
+          <div class="footer-social" aria-label="Réseaux sociaux">
+            <a class="footer-social__btn" href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
+            <a class="footer-social__btn" href="https://github.com/Vickthaur" target="_blank" rel="noopener" aria-label="GitHub">💻</a>
+            <a class="footer-social__btn" href="https://www.linkedin.com/in/victor-detroux-bb9753234/" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a>
+          </div>
+        </section>
+
+        <!-- Liens -->
+        <nav class="footer-col" aria-label="Navigation de pied de page">
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-list">
+            <li><a href="#top">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#prix">Tarifs</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Contact -->
+        <section class="footer-col" aria-label="Coordonnées">
+          <h4 class="footer-title">Contact</h4>
+          <ul class="footer-list">
+            <li>📧 <a href="mailto:victor.2xstudio@gmail.com">victor.2xstudio@gmail.com</a></li>
+            <li>📞 <a href="tel:+33785977164">07 85 97 71 64</a></li>
+            <li>📍 Aix-en-Provence</li>
+          </ul>
+        </section>
       </div>
-    </div>
 
-    <!-- Grille infos -->
-    <div class="footer-grid reveal">
-      <!-- Brand -->
-      <section class="footer-col">
-        <div class="footer-brand">
-          <img src="image/V2XSTUDIO.webp" alt="Vx2 Studio" class="footer-brand__logo">
-          <strong>Vx2 Studio</strong>
+      <hr class="footer-sep" />
+
+      <!-- Bas de page -->
+      <div class="footer-bottom">
+        <div>© <span id="year"></span> Vx2 Studio — Tous droits réservés</div>
+        <div class="footer-legal">
+          <a href="Mentions légales.html" target="_blank" rel="noopener">Mentions légales</a>
+          <a href="Confidentialité.html" target="_blank" rel="noopener">Confidentialité</a>
         </div>
-        <p class="muted">Sites rapides, WordPress léger & SEO efficace.</p>
-        <div class="footer-social">
-          <a class="footer-social__btn" href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
-          <a class="footer-social__btn" href="https://github.com/Vickthaur" target="_blank" rel="noopener" aria-label="GitHub">💻</a>
-          <a class="footer-social__btn" href="https://www.linkedin.com/in/victor-detroux-bb9753234/" target="_blank" rel="noopener" aria-label="LinkedIn">🔗</a>
-        </div>
-      </section>
-
-      <!-- Liens -->
-      <nav class="footer-col" aria-label="Pied de page">
-        <h4 class="footer-title">Navigation</h4>
-        <ul class="footer-list">
-          <li><a href="#top">Accueil</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#prix">Tarifs</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <!-- Contact -->
-      <section class="footer-col">
-        <h4 class="footer-title">Contact</h4>
-        <ul class="footer-list">
-          <li>📧 <a href="mailto:victor.2xstudio@gmail.com">victor.2xstudio@gmail.com</a></li>
-          <li>📞 <a href="tel:+33785977164">07 85 97 71 64</a></li>
-          <li>📍 Aix-en-Provence</li>
-        </ul>
-      </section>
-    </div>
-
-    <hr class="footer-sep">
-
-    <!-- Bas de page -->
-    <div class="footer-bottom">
-      <div>© <span id="year"></span> Vx2 Studio — Tous droits réservés</div>
-      <div class="footer-legal">
-        <a href="Mentions légales.html" target="_blank" rel="noopener">Mentions légales</a>
-        <a href="Confidentialité.html" target="_blank" rel="noopener">Confidentialité</a>
       </div>
     </div>
-  </div>
 
-  <!-- === CHATBOT Vx2 START — HTML (ajouté juste avant </footer>) === -->
-  <button class="vx2-chat-launcher" id="vx2ChatLauncher" aria-label="Ouvrir le chat">💬</button>
+    <!-- ===== CHATBOT Vx2 — HTML ===== -->
+    <button class="vx2-chat-launcher" id="vx2ChatLauncher" aria-label="Ouvrir le chat">💬</button>
 
-  <div class="vx2-chat-window" id="vx2ChatWindow" role="dialog" aria-modal="true" aria-labelledby="vx2ChatTitle">
-    <div class="vx2-chat-header">
-      <h3 id="vx2ChatTitle">Assistant Vx2</h3>
-      <button class="vx2-chat-close" id="vx2ChatClose" aria-label="Fermer">×</button>
+    <div
+      class="vx2-chat-window"
+      id="vx2ChatWindow"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="vx2ChatTitle"
+      aria-describedby="vx2ChatDesc"
+    >
+      <div class="vx2-chat-header">
+        <h3 id="vx2ChatTitle">Assistant Vx2</h3>
+        <button class="vx2-chat-close" id="vx2ChatClose" aria-label="Fermer">×</button>
+      </div>
+
+      <div id="vx2ChatDesc" hidden>Fenêtre de conversation d’assistance Vx2 Studio.</div>
+
+      <div class="vx2-chat-messages" id="vx2ChatMessages" aria-live="polite"></div>
+
+      <div class="vx2-chat-input">
+        <label for="vx2ChatInput" class="visually-hidden" style="position:absolute;left:-9999px;">Votre message</label>
+        <input id="vx2ChatInput" type="text" placeholder="Posez une question (tarifs, délais, SEO…)" autocomplete="off" />
+        <button id="vx2ChatSend" type="button" aria-label="Envoyer">Envoyer</button>
+      </div>
     </div>
-    <div class="vx2-chat-messages" id="vx2ChatMessages" aria-live="polite"></div>
-    <div class="vx2-chat-input">
-      <input id="vx2ChatInput" type="text" placeholder="Posez une question (tarifs, délais, SEO…)" autocomplete="off" />
-      <button id="vx2ChatSend">Envoyer</button>
-    </div>
-  </div>
-  <!-- === CHATBOT Vx2 END — HTML === -->
-</footer>
+    <!-- ===== /CHATBOT Vx2 ===== -->
+  </footer>
 
-<script>
-/* ===== Utils ===== */
-const $ = (s,r=document)=>r.querySelector(s);
-const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
-const byId = id => document.getElementById(id);
+  <!-- ================== SCRIPTS ================== -->
+  <script>
+    /* ============ Utils ============ */
+    const $ = (s, r=document) => r.querySelector(s);
+    const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+    const byId = id => document.getElementById(id);
 
-/* Year */
-const yearEl = byId('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+    /* Année dynamique */
+    const yearEl = byId('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* Reveal on scroll (safe reduced motion) */
-const prefersReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (!prefersReduce && 'IntersectionObserver' in window) {
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+    /* Reveal on scroll (respect reduced motion) */
+    const prefersReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduce && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+        });
+      }, { threshold: .25 });
+      $$('.reveal').forEach(el => io.observe(el));
+    } else {
+      $$('.reveal').forEach(el => el.classList.add('show'));
+    }
+
+    /* Tilt subtil sur l'image mockup (avec rAF) */
+    (() => {
+      if (prefersReduce) return;
+      const el = $('.mockup-tilt');
+      if (!el) return;
+      let aimX = 0, aimY = 0, curX = 0, curY = 0, raf;
+      const update = () => {
+        curX += (aimX - curX) * 0.18;
+        curY += (aimY - curY) * 0.18;
+        el.style.transform = `perspective(1000px) rotateX(${curX}deg) rotateY(${curY}deg) translateZ(0)`;
+        raf = requestAnimationFrame(update);
+      };
+      el.addEventListener('mousemove', (e) => {
+        const r = el.getBoundingClientRect();
+        aimX = ((e.clientY - r.top)/r.height - .5) * -6;
+        aimY = ((e.clientX - r.left)/r.width - .5) *  8;
+        if (!raf) raf = requestAnimationFrame(update);
+      });
+      el.addEventListener('mouseleave', () => {
+        aimX = 0; aimY = 0;
+        if (!raf) raf = requestAnimationFrame(update);
+        setTimeout(()=>{ cancelAnimationFrame(raf); raf = null; }, 300);
+      });
+    })();
+
+    /* Navigation ancrée avec focus accessible */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = byId(id);
+        if (el) {
+          e.preventDefault();
+          el.scrollIntoView({ behavior: 'smooth' });
+          el.setAttribute('tabindex', '-1');
+          el.focus({ preventScroll: true });
+        }
+      });
     });
-  }, { threshold:.25 });
-  $$('.reveal').forEach(el=>io.observe(el));
-} else {
-  $$('.reveal').forEach(el=>el.classList.add('show'));
-}
 
-/* Tilt (subtil + rAF) */
-(() => {
-  if (prefersReduce) return;
-  const el = $('.mockup-tilt');
-  if (!el) return;
-  let aimX = 0, aimY = 0, curX = 0, curY = 0, raf;
-  const update = () => {
-    curX += (aimX - curX) * 0.18;
-    curY += (aimY - curY) * 0.18;
-    el.style.transform = `perspective(1000px) rotateX(${curX}deg) rotateY(${curY}deg) translateZ(0)`;
-    raf = requestAnimationFrame(update);
-  };
-  el.addEventListener('mousemove', (e) => {
-    const r = el.getBoundingClientRect();
-    aimX = ((e.clientY - r.top)/r.height - .5) * -6;
-    aimY = ((e.clientX - r.left)/r.width - .5) *  8;
-    if (!raf) raf = requestAnimationFrame(update);
-  });
-  el.addEventListener('mouseleave', () => {
-    aimX = 0; aimY = 0;
-    if (!raf) raf = requestAnimationFrame(update);
-    setTimeout(()=>{ cancelAnimationFrame(raf); raf = null; }, 300);
-  });
-})();
+    /* Formspree: validation + feedback + anti double-submit */
+    (() => {
+      const form   = byId('lead');
+      const status = byId('status');
+      if (!form || !status) return;
 
-/* Formspree: validation + feedback (anti double-submit + timeout) */
-(() => {
-  const form = byId('lead');
-  const status = byId('status');
-  if (!form || !status) return;
+      const submitBtn = form.querySelector('button[type="submit"]');
 
-  const submitBtn = form.querySelector('button[type="submit"]');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        const rgpd = byId('rgpd');
 
-    const data = Object.fromEntries(new FormData(form).entries());
-    const rgpd = byId('rgpd');
+        // Validation
+        if (!data.nom || !data.email || !rgpd?.checked) {
+          status.textContent = 'Champs requis manquants.';
+          status.style.color = '#ff6b6b';
+          return;
+        }
+        if (!/.+@.+\..+/.test(data.email)) {
+          status.textContent = 'Email invalide.';
+          status.style.color = '#ff6b6b';
+          return;
+        }
 
-    // Validation
-    if (!data.nom || !data.email || !rgpd?.checked) {
-      status.textContent = 'Champs requis manquants.';
-      status.style.color = '#ff6b6b';
-      return;
-    }
-    if (!/.+@.+\..+/.test(data.email)) {
-      status.textContent = 'Email invalide.';
-      status.style.color = '#ff6b6b';
-      return;
-    }
+        // UI lock
+        status.textContent = 'Envoi en cours…';
+        status.style.color = 'inherit';
+        submitBtn && (submitBtn.disabled = true);
 
-    // UI lock
-    status.textContent = 'Envoi en cours…';
-    status.style.color = 'inherit';
-    submitBtn && (submitBtn.disabled = true);
+        // Timeout 10s
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), 10000);
 
-    // Timeout 10s
-    const ctrl = new AbortController();
-    const t = setTimeout(()=>ctrl.abort(), 10000);
+        try {
+          const res = await fetch('https://formspree.io/f/mvgwdrqo', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form),
+            signal: ctrl.signal
+          });
 
-    try {
-      const res = await fetch('https://formspree.io/f/mvgwdrqo', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form),
-        signal: ctrl.signal
+          if (res.ok) {
+            const params = new URLSearchParams({ nom: data.nom || '', email: data.email || '' });
+            form.reset();
+            if (rgpd) rgpd.checked = false;
+            window.location.href = 'merci.html?' + params.toString();
+          } else {
+            status.textContent = 'Erreur serveur. Réessayez plus tard.';
+            status.style.color = '#e11d48';
+          }
+        } catch (err) {
+          status.textContent = (err.name === 'AbortError')
+            ? 'Délai dépassé. Vérifiez votre connexion.'
+            : 'Erreur de connexion. Vérifiez votre réseau.';
+          status.style.color = '#e11d48';
+        } finally {
+          clearTimeout(t);
+          submitBtn && (submitBtn.disabled = false);
+        }
+      });
+    })();
+
+    /* ============ CHATBOT Vx2 ============ */
+    (() => {
+      const launcher = byId('vx2ChatLauncher');
+      const win      = byId('vx2ChatWindow');
+      const msgs     = byId('vx2ChatMessages');
+      const input    = byId('vx2ChatInput');
+      const sendBtn  = byId('vx2ChatSend');
+      const closeBtn = byId('vx2ChatClose');
+
+      if (!launcher || !win || !msgs || !input || !sendBtn || !closeBtn) return;
+
+      // Petit FAQ / intents rapides
+      const faq = [
+        { k: ["tarif","prix","coût","combien"], r: "Sites vitrine dès 990€ HT. Devis précis après un appel de 15 min. Réponse sous 24h." },
+        { k: ["délai","delai","deadline","temps","livraison"], r: "Un site vitrine : 7–14 jours. Un WordPress complet : 2–4 semaines selon le contenu." },
+        { k: ["seo","référencement","google"], r: "SEO technique inclus (balises, structure, perf) + plan d’actions. Objectif PageSpeed 90+." },
+        { k: ["technos","stack","html","wordpress","wp","js","css"], r: "HTML/CSS/JS natif, WordPress (thème léger), Woo, bonnes pratiques accessibilité & Core Web Vitals." },
+        { k: ["maintenance","maj","sécurité","sauvegarde"], r: "MAJ cœur/plug-ins, sauvegardes, monitoring, durcissement sécurité + support." }
+      ];
+
+      // Helpers
+      const scrollToBottom = () => { msgs.scrollTop = msgs.scrollHeight; };
+      const saveState = () => localStorage.setItem('vx2chat', msgs.innerHTML);
+      const loadState = () => { const s = localStorage.getItem('vx2chat'); if (s) msgs.innerHTML = s; };
+
+      const addMsg = (text, from = 'bot') => {
+        const wrap = document.createElement('div');
+        wrap.className = `vx2-msg ${from}`;
+        const bubble = document.createElement('div');
+        bubble.className = 'vx2-bubble';
+        bubble.textContent = text;
+        wrap.appendChild(bubble);
+        msgs.appendChild(wrap);
+        scrollToBottom();
+        saveState();
+      };
+
+      const getAnswer = (q) => {
+        const L = q.toLowerCase();
+        for (const f of faq) {
+          if (f.k.some(k => L.includes(k))) return f.r;
+        }
+        return "Je note votre demande. Dites-m’en un peu plus (budget, délais, type de site) et je vous propose un plan d’action rapide.";
+      };
+
+      // Ouverture / fermeture avec focus management
+      const openChat = () => {
+        win.classList.add('open');
+        launcher.setAttribute('aria-expanded', 'true');
+        win.removeAttribute('inert');
+        setTimeout(() => input.focus(), 0);
+        scrollToBottom();
+      };
+      const closeChat = () => {
+        win.classList.remove('open');
+        launcher.setAttribute('aria-expanded', 'false');
+        win.setAttribute('inert', '');
+        launcher.focus();
+      };
+
+      // Bootstrap
+      loadState();
+      launcher.addEventListener('click', openChat);
+      closeBtn.addEventListener('click', closeChat);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && win.classList.contains('open')) closeChat(); });
+
+      // Envoi message
+      const send = () => {
+        const txt = input.value.trim();
+        if (!txt) return;
+        addMsg(txt, 'user');
+        input.value = '';
+        // Simuler la réponse
+        setTimeout(() => addMsg(getAnswer(txt), 'bot'), 250);
+      };
+
+      sendBtn.addEventListener('click', send);
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          send();
+        }
       });
 
-      if (res.ok) {
-        const params = new URLSearchParams({
-          nom: data.nom || '',
-          email: data.email || ''
-        });
-        form.reset();
-        if (rgpd) rgpd.checked = false;
-        window.location.href = 'merci.html?' + params.toString();
-      } else {
-        status.textContent = 'Erreur serveur. Réessayez plus tard.';
-        status.style.color = '#e11d48';
-      }
-    } catch (err) {
-      status.textContent = (err.name === 'AbortError')
-        ? 'Délai dépassé. Vérifiez votre connexion.'
-        : 'Erreur de connexion. Vérifiez votre réseau.';
-      status.style.color = '#e11d48';
-    } finally {
-      clearTimeout(t);
-      submitBtn && (submitBtn.disabled = false);
-    }
-  });
-})();
-
-/* Navigation ancre (focus) */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const id = a.getAttribute('href').slice(1), el = byId(id);
-    if (el) {
-      e.preventDefault();
-      el.scrollIntoView({behavior:'smooth'});
-      el.setAttribute('tabindex','-1');
-      el.focus({preventScroll:true});
-    }
-  });
-});
-/* === CHATBOT Vx2 START — JS (ajouté en bas du <script>) === */
-</script>
+      // Auto scroll si l'utilisateur remonte et qu’un nouveau message arrive (déjà géré dans addMsg)
+      // --> scrollToBottom() est appelé après chaque ajout.
+    })();
+  </script>
 </body>
 </html>
