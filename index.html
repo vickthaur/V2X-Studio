@@ -86,6 +86,7 @@
     }
     @media (prefers-color-scheme: light){
       body{
+        color:var(--ink);
         background:
           radial-gradient(1200px 800px at 80% -10%, rgba(0,0,0,.03), transparent 60%),
           radial-gradient(1200px 800px at 10% -20%, rgba(0,0,0,.04), transparent 60%),
@@ -105,9 +106,7 @@
       background:rgba(12,12,14,.45);
       border-bottom:1px solid var(--bd);
     }
-    @media (prefers-color-scheme: light){
-      header{background:rgba(255,255,255,.75)}
-    }
+    @media (prefers-color-scheme: light){ header{background:rgba(255,255,255,.75)} }
     .head-wrap{display:grid;place-items:center;gap:8px;padding:16px 0}
     .logo{width:90px;height:auto;filter:drop-shadow(0 6px 18px rgba(0,0,0,.35))}
     h1{margin:0;font-weight:800;letter-spacing:-.02em;text-align:center;font-size:clamp(24px,3.8vw,44px)}
@@ -189,7 +188,7 @@
       .mockup-tilt{transition:none}
     }
 
-    /* ===== Chat — Styles améliorés ===== */
+    /* ===== Chat — Styles (contrastes corrigés) ===== */
     .vx2-chat-launcher{
       position:fixed; right:20px; bottom:20px; z-index:1000;
       width:56px; height:56px; border:none; cursor:pointer;
@@ -207,11 +206,13 @@
     .vx2-chat-window{
       position:fixed; right:20px; bottom:90px; z-index:1000;
       width:380px; max-width:calc(100vw - 40px);
-      background:#0f1115; color:var(--ink);
+      background:#0f1115; color:#f8fafc;   /* lisible en dark */
       border:1px solid var(--bd); border-radius:16px; display:none; flex-direction:column;
       box-shadow:0 22px 60px rgba(0,0,0,.35); overflow:hidden;
     }
-    @media (prefers-color-scheme: light){ .vx2-chat-window{ background:#ffffff } }
+    @media (prefers-color-scheme: light){
+      .vx2-chat-window{ background:#ffffff; color:#0f172a } /* lisible en light */
+    }
     .vx2-chat-window.open{ display:flex }
 
     .vx2-chat-header{
@@ -224,25 +225,34 @@
 
     .vx2-quick{ display:flex; flex-wrap:wrap; gap:6px; padding:8px 12px }
     .vx2-chip{
-      border:1px solid var(--bd); background:rgba(255,255,255,.04);
-      padding:6px 10px; border-radius:999px; font-size:12px; cursor:pointer;
+      border:1px solid var(--bd); background:rgba(255,255,255,.08);
+      padding:6px 10px; border-radius:999px; font-size:12px; cursor:pointer; color:#f1f5f9;
     }
-    .vx2-chip:hover{ background:rgba(255,255,255,.08) }
+    .vx2-chip:hover{ background:rgba(255,255,255,.14) }
+    @media (prefers-color-scheme: light){
+      .vx2-chip{ background:#ffffff; color:#0f172a; border-color:#e5e7eb }
+      .vx2-chip:hover{ background:#f3f4f6 }
+    }
 
-    .vx2-chat-messages{ height:380px; overflow:auto; padding:12px; background:rgba(255,255,255,.03) }
+    .vx2-chat-messages{ height:380px; overflow:auto; padding:12px; background:rgba(255,255,255,.06) }
+    @media (prefers-color-scheme: light){ .vx2-chat-messages{ background:#f9fafb } }
     .vx2-msg{ display:flex; gap:10px; margin:8px 0 }
     .vx2-msg.user{ justify-content:flex-end }
     .vx2-bubble{
       max-width:80%; padding:10px 12px; border-radius:12px; font-size:14px; line-height:1.35;
       word-wrap:break-word; white-space:pre-wrap; position:relative;
     }
-    .vx2-meta{ display:block; margin-top:4px; font-size:11px; opacity:.7 }
+    .vx2-meta{ display:block; margin-top:4px; font-size:11px; opacity:.75 }
     .vx2-msg.user .vx2-bubble{ background:#dbeafe; color:#0b1220; border:1px solid #bcd7ff }
-    .vx2-msg.bot  .vx2-bubble{ background:rgba(255,255,255,.06); border:1px solid var(--bd) }
+    .vx2-msg.bot  .vx2-bubble{ background:rgba(255,255,255,.10); color:#f8fafc; border:1px solid rgba(255,255,255,.2) }
+    @media (prefers-color-scheme: light){
+      .vx2-msg.bot .vx2-bubble{ background:#f3f4f6; color:#0f172a; border:1px solid #e5e7eb }
+      .vx2-msg.user .vx2-bubble{ background:#e0f2fe; color:#0b1220; border:1px solid #bae6fd }
+    }
 
     .vx2-typing{ display:flex; align-items:center; gap:8px; margin:6px 0 2px 4px }
     .vx2-typing .dot{
-      width:6px; height:6px; border-radius:999px; background:rgba(255,255,255,.6);
+      width:6px; height:6px; border-radius:999px; background:rgba(255,255,255,.8);
       animation:vx2blink 1.3s infinite;
     }
     .vx2-typing .dot:nth-child(2){ animation-delay:.15s }
@@ -250,8 +260,14 @@
     @keyframes vx2blink { 0%,80%,100%{opacity:.2} 40%{opacity:1} }
 
     .vx2-chat-input{ display:flex; gap:8px; padding:10px; border-top:1px solid var(--bd); background:rgba(255,255,255,.02) }
-    .vx2-chat-input input{ flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--bd); background:rgba(255,255,255,.06); color:var(--ink) }
+    .vx2-chat-input input{ flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--bd); background:rgba(255,255,255,.12); color:#f8fafc }
+    .vx2-chat-input input::placeholder{ color:#cbd5e1 }
     .vx2-chat-input button{ border:1px solid #0ea5e9; background:#0ea5e9; color:#fff; border-radius:12px; padding:10px 14px; cursor:pointer }
+    @media (prefers-color-scheme: light){
+      .vx2-chat-input{ background:#fff }
+      .vx2-chat-input input{ background:#ffffff; color:#0f172a; border-color:#d1d5db }
+      .vx2-chat-input input::placeholder{ color:#6b7280 }
+    }
     @media (max-height:640px){ .vx2-chat-messages{ height:280px } }
 
     /* ===== Bannière RGPD ===== */
@@ -484,7 +500,7 @@
       <p class="muted" style="margin:.3rem 0 0">
         Nous utilisons des cookies de mesure (anonymisés) pour améliorer le site. Vous pouvez refuser. Aucune pub ciblée.
       </p>
-      <a href="Confidentialité.html" class="muted" style="font-size:.92rem">En savoir plus</a>
+      <a href="Confidentialité.html" class="muted" style="font-size:.92rem">En savoir plus</a>
     </div>
     <div class="consent-actions">
       <button class="btn small ghost-outline" id="consentDeny">Refuser</button>
@@ -590,7 +606,6 @@
         }
       });
 
-      // Enlever aria-invalid au input
       ['nom','email'].forEach(id=>{
         const el = byId(id);
         el && el.addEventListener('input', ()=> setInvalid(el, false));
@@ -608,7 +623,7 @@
       const setConsent = (v) => localStorage.setItem(KEY, v);
 
       const injectAnalytics = () => {
-        // Exemple GA4 : décommente et remplace l'ID si tu l'utilises
+        // GA4 (décommente si tu l’utilises)
         // const gtag = document.createElement('script');
         // gtag.src = `https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID`;
         // gtag.async = true; document.head.appendChild(gtag);
@@ -616,11 +631,11 @@
         // function g(){ dataLayer.push(arguments); }
         // g('js', new Date()); g('config','GA_MEASUREMENT_ID', { anonymize_ip: true });
 
-        // Exemple Plausible :
-        // const plausible = document.createElement('script');
-        // plausible.src = 'https://plausible.io/js/plausible.js';
-        // plausible.setAttribute('data-domain','ton-domaine.tld');
-        // plausible.defer = true; document.head.appendChild(plausible);
+        // Plausible (exemple) :
+        // const s = document.createElement('script');
+        // s.src = 'https://plausible.io/js/plausible.js';
+        // s.setAttribute('data-domain','ton-domaine.tld');
+        // s.defer = true; document.head.appendChild(s);
       };
 
       const consent = getConsent();
@@ -696,12 +711,16 @@
 
       const hoursOk = () => { const d=new Date(), day=d.getDay(), h=d.getHours(); return day>=1 && day<=5 && h>=9 && h<18; };
 
+      // ——— Réponses prêtes (tarifs mis à jour) ———
       const canned = [
-        { k:["tarif","prix","coût","combien"], r:"Sites vitrine dès 990€ HT. Devis précis après un appel de 15 min. Réponse sous 24h." },
-        { k:["délai","delai","deadline","temps","livraison"], r:"Site vitrine : 7–14 jours. WordPress complet : 2–4 semaines selon le contenu." },
+        {
+          k:["tarif","prix","coût","combien","devis"],
+          r:"Tarifs indicatifs :\n• Starter (HTML/CSS/JS) — 300€ HT\n• Business WP — 600€ HT + 49€/mois\n• SEO Boost — 490€/mois\n• Création de logo — à partir de 100€ HT\n\nOn affine avec un appel de 15 min (devis précis)."
+        },
+        { k:["délai","delai","deadline","temps","livraison"], r:"Site vitrine : 7–14 jours. WordPress complet : 2–4 semaines selon contenus." },
         { k:["seo","référencement","google"], r:"SEO technique (balises, structure, perfs) + plan d’actions. Objectif PageSpeed 90+." },
-        { k:["wordpress","wp","gutenberg","woo"], r:"WordPress avec thème léger, Gutenberg, Woo, sécurité & sauvegardes." },
-        { k:["maintenance","maj","sécurité","sauvegarde"], r:"MAJ cœur/plug-ins, sauvegardes, monitoring, durcissement sécurité + support." }
+        { k:["wordpress","wp","gutenberg","woo"], r:"WordPress léger, Gutenberg, Woo, sécurité & sauvegardes." },
+        { k:["maintenance","maj","sécurité","sauvegarde"], r:"MAJ cœur/plugins, sauvegardes, monitoring, durcissement sécurité + support." }
       ];
       const matchCanned = q => { const L=q.toLowerCase(); for (const c of canned){ if (c.k.some(k=>L.includes(k))) return c.r; } return null; };
 
@@ -766,7 +785,9 @@
       };
 
       // Bootstrap
-      loadState();
+      const saved = localStorage.getItem('vx2chat_init'); if (!saved){ localStorage.setItem('vx2chat_init','1'); }
+      (function load(){ const s = localStorage.getItem('vx2chat'); if (s) msgs.innerHTML = s; })();
+
       launcher.addEventListener('click', openChat);
       closeBtn.addEventListener('click', closeChat);
       document.addEventListener('keydown', (e)=>{ if (e.key === 'Escape' && win.classList.contains('open')) closeChat(); });
