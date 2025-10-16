@@ -181,6 +181,40 @@
   a:hover{ color:var(--brand-2); opacity:.9 }
   .footer a{ color:var(--ink) }
   .footer a:hover{ color:var(--brand-2) }
+
+  /* === CHATBOT Vx2 START — CSS (ajouté en bas du <style>) === */
+  .vx2-chat-launcher{
+    position:fixed; right:20px; bottom:20px; z-index:1000;
+    width:56px; height:56px; border-radius:999px; border:none; cursor:pointer;
+    display:grid; place-items:center; color:#fff; background:var(--brand);
+    box-shadow:0 10px 28px rgba(0,0,0,.25);
+  }
+  .vx2-chat-launcher:hover{filter:brightness(1.05)}
+  .vx2-chat-window{
+    position:fixed; right:20px; bottom:90px; z-index:1000;
+    width:360px; max-width:calc(100vw - 40px);
+    background:#0f1115; color:var(--ink);
+    border:1px solid var(--bd); border-radius:16px; display:none; flex-direction:column;
+    box-shadow:0 22px 60px rgba(0,0,0,.35); overflow:hidden;
+  }
+  .vx2-chat-window.open{display:flex}
+  .vx2-chat-header{
+    display:flex; justify-content:space-between; align-items:center; gap:8px;
+    padding:10px 12px; background:linear-gradient(135deg,var(--brand),#12a4d9); color:#fff;
+  }
+  .vx2-chat-header h3{margin:0; font-size:15px}
+  .vx2-chat-close{background:transparent; border:none; color:#fff; font-size:22px; cursor:pointer}
+  .vx2-chat-messages{height:360px; overflow:auto; padding:12px; background:rgba(255,255,255,.03)}
+  .vx2-msg{display:flex; gap:10px; margin:8px 0}
+  .vx2-msg.user{justify-content:flex-end}
+  .vx2-bubble{max-width:80%; padding:9px 11px; border-radius:12px; font-size:14px; line-height:1.35}
+  .vx2-msg.user .vx2-bubble{background:#dbeafe; color:#0b1220; border:1px solid #bcd7ff}
+  .vx2-msg.bot .vx2-bubble{background:rgba(255,255,255,.06); border:1px solid var(--bd)}
+  .vx2-chat-input{display:flex; gap:8px; padding:10px; border-top:1px solid var(--bd); background:rgba(255,255,255,.02)}
+  .vx2-chat-input input{flex:1; padding:10px 12px; border-radius:12px; border:1px solid var(--bd); background:rgba(255,255,255,.06); color:var(--ink)}
+  .vx2-chat-input button{border:1px solid #0ea5e9; background:#0ea5e9; color:#fff; border-radius:12px; padding:10px 14px; cursor:pointer}
+  @media (max-height:640px){ .vx2-chat-messages{height:260px} }
+  /* === CHATBOT Vx2 END — CSS === */
   </style>
 </head>
 <body>
@@ -438,6 +472,22 @@
       </div>
     </div>
   </div>
+
+  <!-- === CHATBOT Vx2 START — HTML (ajouté juste avant </footer>) === -->
+  <button class="vx2-chat-launcher" id="vx2ChatLauncher" aria-label="Ouvrir le chat">💬</button>
+
+  <div class="vx2-chat-window" id="vx2ChatWindow" role="dialog" aria-modal="true" aria-labelledby="vx2ChatTitle">
+    <div class="vx2-chat-header">
+      <h3 id="vx2ChatTitle">Assistant Vx2</h3>
+      <button class="vx2-chat-close" id="vx2ChatClose" aria-label="Fermer">×</button>
+    </div>
+    <div class="vx2-chat-messages" id="vx2ChatMessages" aria-live="polite"></div>
+    <div class="vx2-chat-input">
+      <input id="vx2ChatInput" type="text" placeholder="Posez une question (tarifs, délais, SEO…)" autocomplete="off" />
+      <button id="vx2ChatSend">Envoyer</button>
+    </div>
+  </div>
+  <!-- === CHATBOT Vx2 END — HTML === -->
 </footer>
 
 <script>
@@ -567,6 +617,63 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     }
   });
 });
+
+/* === CHATBOT Vx2 START — JS (ajouté en bas du <script>) === */
+(() => {
+  const launcher = byId('vx2ChatLauncher');
+  const win = byId('vx2ChatWindow');
+  const msgs = byId('vx2ChatMessages');
+  const input = byId('vx2ChatInput');
+  const send = byId('vx2ChatSend');
+  const closeBtn = byId('vx2ChatClose');
+
+  const faq = [
+    { k:["tarif","prix","coût","combien"], r:"Sites vitrine dès 990€ HT. Devis précis après un appel de 15 min. Réponse sous 24h." },
+    { k:["délai","delai","deadline","temps","livraison"], r:"Un site vitrine : 7–14 jours. Un WordPress complet : 2–4 semaines selon contenu." },
+    { k:["seo","référencement","google"], r:"SEO technique inclus (balises, structure, perf) + plan d’actions. Objectif PageSpeed 90+." },
+    { k:["technos","stack","html","wordpress","woocommerce"], r:"HTML/CSS/JS optimisé ou WordPress léger (Gutenberg). Intégrations GA4 / Search Console / Matomo." },
+    { k:["contact","email","téléphone","rdv","devis"], r:"Écrivez à victor.2xstudio@gmail.com ou appelez le 07 85 97 71 64. On cale un créneau rapide." }
+  ];
+
+  function add(role, text){
+    const row = document.createElement('div');
+    row.className = `vx2-msg ${role}`;
+    const bubble = document.createElement('div');
+    bubble.className = 'vx2-bubble';
+    bubble.textContent = text;
+    row.appendChild(bubble);
+    msgs.appendChild(row);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function findReply(t){
+    const s = t.toLowerCase();
+    for(const item of faq){
+      if(item.k.some(k=>s.includes(k))) return item.r;
+    }
+    return "Je n’ai pas encore la réponse à ça. Essayez « tarifs », « délais », « SEO », « WordPress » ou « contact ».";
+  }
+
+  function handleSend(){
+    const v = (input.value||"").trim();
+    if(!v) return;
+    add('user', v);
+    input.value = '';
+    setTimeout(()=> add('bot', findReply(v)), 350);
+  }
+
+  launcher.addEventListener('click', ()=>{
+    const open = win.classList.toggle('open');
+    if(open && msgs.childElementCount===0){
+      add('bot', "Salut 👋 Je suis l’assistant Vx2. Posez vos questions (tarifs, délais, SEO…).");
+    }
+    if(open) input.focus();
+  });
+  closeBtn.addEventListener('click', ()=> win.classList.remove('open'));
+  send.addEventListener('click', handleSend);
+  input.addEventListener('keydown', e=>{ if(e.key==='Enter') handleSend(); });
+})();
+/* === CHATBOT Vx2 END — JS === */
 </script>
 </body>
 </html>
