@@ -1,92 +1,118 @@
 <!doctype html>
 <html lang="fr">
-  <style>
-/* ====== Style commun Mentions légales & Confidentialité ====== */
-body.legal {
-  margin: 0;
-  font-family: system-ui, -apple-system, Inter, Arial, sans-serif;
-  background: linear-gradient(180deg, #f9fafc 0%, #eef2f7 100%);
-  color: #0f172a;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-}
-
-main {
-  max-width: 850px;
-  margin: 80px auto;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: blur(10px);
-  padding: 60px 40px;
-  border-radius: 16px;
-  box-shadow: 0 8px 28px rgba(15,23,42,0.08);
-}
-
-/* Titres */
-h1 {
-  font-size: 2.2rem;
-  margin-bottom: 30px;
-  background: linear-gradient(90deg, #0a4466, #136e99);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-h2 {
-  margin-top: 32px;
-  font-size: 1.3rem;
-  color: #0a4466;
-}
-
-p, li {
-  font-size: 1rem;
-  color: #334155;
-}
-
-ul {
-  margin: 12px 0 24px 24px;
-}
-
-/* Liens */
-a {
-  color: #136e99;
-  text-decoration: none;
-  border-bottom: 1px dashed rgba(19,110,153,0.3);
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-a:hover {
-  color: #0a4466;
-  border-color: rgba(10,68,102,0.6);
-}
-
-/* Bouton retour */
-.back-btn {
-  display: inline-block;
-  margin-top: 40px;
-  padding: 10px 18px;
-  background: #0a4466;
-  color: #fff;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background 0.2s ease;
-}
-
-.back-btn:hover {
-  background: #136e99;
-}
-  </style>
 <head>
   <meta charset="utf-8">
-  <title>Politique de confidentialité — Vx2 Studio</title>
+  <title>Politique de confidentialité — V2X Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Politique de confidentialité du site Vx2 Studio.">
+  <meta name="description" content="Politique de confidentialité du site V2X Studio.">
   <link rel="stylesheet" href="style.css">
+
+  <style>
+  /* ====== Style commun Mentions légales & Confidentialité ====== */
+  :root{
+    --ink:#0f172a; --muted:#334155;
+    --brand:#0a4466; --brand-2:#136e99;
+    --paper:rgba(255,255,255,0.9);
+    --shadow:0 8px 28px rgba(15,23,42,0.08);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#e5e7eb; --muted:#cbd5e1;
+      --paper:rgba(15,17,26,0.85);
+      --shadow:0 8px 28px rgba(0,0,0,0.35);
+    }
+  }
+
+  body.legal {
+    margin: 0;
+    font-family: system-ui, -apple-system, Inter, Arial, sans-serif;
+    color: var(--ink);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+
+    /* Fond lissé anti-banding + fallback color */
+    background-color:#f6f8fb;
+    background:
+      linear-gradient(180deg, #f9fafc 0%, #eef2f7 100%),
+      repeating-linear-gradient(45deg, rgba(0,0,0,.012) 0 2px, transparent 2px 6px),
+      repeating-linear-gradient(-45deg, rgba(0,0,0,.01) 0 3px, transparent 3px 7px);
+    background-blend-mode: normal, overlay, overlay;
+  }
+
+  @media (prefers-color-scheme: dark){
+    body.legal{
+      background-color:#0b0c10;
+      background:
+        linear-gradient(180deg, #0b0c10 0%, #11151b 100%),
+        radial-gradient(900px 600px at 80% -10%, rgba(255,255,255,.06), transparent 60%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.02) 0 2px, transparent 2px 6px);
+      background-blend-mode: normal, screen, overlay;
+    }
+  }
+
+  main {
+    max-width: 850px;
+    margin: 80px auto;
+    background: var(--paper);
+    backdrop-filter: blur(10px);
+    padding: 60px 40px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+  }
+
+  /* Titres */
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, var(--brand), var(--brand-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  h2 {
+    margin-top: 32px;
+    font-size: 1.3rem;
+    color: var(--brand);
+  }
+
+  p, li { font-size: 1rem; color: var(--muted); }
+
+  ul { margin: 12px 0 24px 24px; }
+
+  /* Liens */
+  a {
+    color: var(--brand-2);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(19,110,153,0.3);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+  a:hover {
+    color: var(--brand);
+    border-color: rgba(10,68,102,0.6);
+  }
+
+  /* Bouton retour (optionnel) */
+  .back-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 10px 18px;
+    background: var(--brand);
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s ease;
+  }
+  .back-btn:hover { background: var(--brand-2); }
+  </style>
 </head>
+
 <body class="legal">
   <main class="container" style="max-width:800px; padding:60px 20px">
     <h1>Politique de confidentialité</h1>
 
-    <p>Chez <strong>Vx2 Studio</strong>, la confidentialité de vos données est une priorité. Ce site collecte uniquement les informations strictement nécessaires pour vous recontacter via le formulaire.</p>
+    <p>Chez <strong>V2X Studio</strong>, la confidentialité de vos données est une priorité. Ce site collecte uniquement les informations strictement nécessaires pour vous recontacter via le formulaire.</p>
 
     <h2>Données collectées</h2>
     <p>Lorsque vous remplissez le formulaire de contact, les données suivantes peuvent être collectées :</p>
