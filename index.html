@@ -7,20 +7,20 @@
   <meta name="theme-color" content="#0a4466" />
   <meta name="description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu. Audit gratuit et devis en 24h." />
   <meta name="robots" content="index,follow" />
-  <title>Vx2 Studio</title>
+  <title>V2X Studio</title>
   <link rel="canonical" href="https://vickthaur.github.io/V2X-Studio/" />
   <link rel="icon" type="image/webp" href="image/V2XSTUDIO.webp" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Vx2 Studio — Sites web rapides, WordPress & SEO" />
+  <meta property="og:title" content="V2X Studio — Sites web rapides, WordPress & SEO" />
   <meta property="og:description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu." />
   <meta property="og:image" content="https://vickthaur.github.io/V2X-Studio/image/og-cover.jpg" />
   <meta property="og:url" content="https://vickthaur.github.io/V2X-Studio/" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Vx2 Studio — Sites web rapides, WordPress & SEO" />
+  <meta name="twitter:title" content="V2X Studio — Sites web rapides, WordPress & SEO" />
   <meta name="twitter:description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu." />
   <meta name="twitter:image" content="https://vickthaur.github.io/V2X-Studio/image/og-cover.jpg" />
 
@@ -29,7 +29,7 @@
   {
     "@context":"https://schema.org",
     "@type":"Organization",
-    "name":"Vx2 Studio",
+    "name":"V2X Studio",
     "url":"https://vickthaur.github.io/V2X-Studio/",
     "logo":"https://vickthaur.github.io/V2X-Studio/image/V2XSTUDIO.webp",
     "sameAs":[
@@ -78,19 +78,30 @@
       margin:0;
       font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       color:var(--ink);
+
+      /* ===== Fond optimisé anti-banding =====
+         - couches radiales pour la profondeur
+         - linéaire pour la transition verticale
+         - trame ultra légère via repeating-linear-gradient pour casser les aplats (performant & sans PNG) */
       background:
-        radial-gradient(1200px 800px at 80% -10%, rgba(255,255,255,.06), transparent 60%),
-        radial-gradient(1200px 800px at 10% -20%, rgba(255,255,255,.08), transparent 60%),
-        linear-gradient(180deg,#0a0a0b,#111214 30%,#0b0b0c);
+        radial-gradient(1100px 720px at 80% -10%, rgba(255,255,255,.07), transparent 60%),
+        radial-gradient(900px 600px at 10% -20%, rgba(255,255,255,.06), transparent 60%),
+        linear-gradient(180deg, #0a0a0b 0%, #101214 36%, #0c0c0d 100%),
+        repeating-linear-gradient( 45deg, rgba(255,255,255,.012) 0 2px, transparent 2px 6px),
+        repeating-linear-gradient(-45deg, rgba(0,0,0,.015) 0 3px, transparent 3px 7px);
+      background-blend-mode: screen,screen,normal,overlay,overlay;
       -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
     @media (prefers-color-scheme: light){
       body{
         color:var(--ink);
         background:
-          radial-gradient(1200px 800px at 80% -10%, rgba(0,0,0,.03), transparent 60%),
-          radial-gradient(1200px 800px at 10% -20%, rgba(0,0,0,.04), transparent 60%),
-          linear-gradient(180deg,#ffffff,#f4f6f9 40%,#eef2f7);
+          radial-gradient(1100px 720px at 80% -10%, rgba(0,0,0,.035), transparent 60%),
+          radial-gradient(900px 600px at 10% -20%, rgba(0,0,0,.04), transparent 60%),
+          linear-gradient(180deg, #ffffff 0%, #f4f6f9 40%, #eef2f7 100%),
+          repeating-linear-gradient( 45deg, rgba(0,0,0,.015) 0 2px, transparent 2px 6px),
+          repeating-linear-gradient(-45deg, rgba(0,0,0,.012) 0 3px, transparent 3px 7px);
+        background-blend-mode: multiply,multiply,normal,overlay,overlay;
       }
     }
     img{max-width:100%;display:block;height:auto}
@@ -281,52 +292,52 @@
     .consent-actions{display:flex;gap:8px;flex-wrap:wrap}
     .btn.small{padding:8px 12px;border-radius:10px;font-size:.9rem}
     .btn.ghost-outline{background:transparent;border:1px solid var(--bd)}
+
+    /* ===== Modale & Carrousel ===== */
     .modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-.modal .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  color: #fff;
-  font-size: 32px;
-  cursor: pointer;
-}
-.carousel {
-  position: relative;
-  max-width: 90%;
-  max-height: 85%;
-  overflow: hidden;
-}
-.carousel-img {
-  display: none;
-  width: 100%;
-  border-radius: 16px;
-}
-.carousel-img.active {
-  display: block;
-}
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 32px;
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 8px;
-}
-.prev { left: 10px; }
-.next { right: 10px; }
-.prev:hover, .next:hover { background: rgba(0,0,0,0.7); }
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 32px;
+      cursor: pointer;
+    }
+    .carousel {
+      position: relative;
+      max-width: 90%;
+      max-height: 85%;
+      overflow: hidden;
+    }
+    .carousel-img {
+      display: none;
+      width: 100%;
+      border-radius: 16px;
+    }
+    .carousel-img.active { display: block; }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 32px;
+      background: rgba(0,0,0,0.5);
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+    .prev { left: 10px; }
+    .next { right: 10px; }
+    .prev:hover, .next:hover { background: rgba(0,0,0,0.7); }
   </style>
 </head>
 
@@ -334,7 +345,7 @@
   <!-- ========= HEADER ========= -->
   <header>
     <div class="container head-wrap">
-      <img class="logo" src="image/V2XSTUDIO.webp" alt="Vx2 Studio" width="180" height="180" />
+      <img class="logo" src="image/V2XSTUDIO.webp" alt="V2X Studio" width="180" height="180" />
       <h1>Sites web qui respirent. Performances qui convainquent.</h1>
     </div>
   </header>
@@ -352,13 +363,13 @@
             <a class="btn ghost" href="#services">Voir les services</a>
           </div>
           <div class="kpis" aria-label="Indicateurs">
-<div class="kpi"><b>🌐 Création de votre identité en ligne</b></div>
-<div class="kpi"><b>SEO / Logo / Site / IA / Réseaux sociaux</b></div>
-<div class="kpi"><b>🎓Étudiant en Master PGE Marketing Digital</b></div>
+            <div class="kpi"><b>🌐 Création de votre identité en ligne</b></div>
+            <div class="kpi"><b>SEO / Logo / Site / IA / Réseaux sociaux</b></div>
+            <div class="kpi"><b>🎓Étudiant en Master PGE Marketing Digital</b></div>
           </div>
         </div>
         <aside class="card reveal" aria-label="Illustration">
-          <img class="media mockup-tilt" src="image/image-top.gif" alt="Mockup Vx2 Studio" width="1280" height="800" loading="eager" decoding="sync" />
+          <img class="media mockup-tilt" src="image/image-top.gif" alt="Mockup V2X Studio" width="1280" height="800" loading="eager" decoding="sync" />
           <p class="muted" style="margin-top:10px">Responsive • Core Web Vitals • Tracking RGPD</p>
         </aside>
       </div>
@@ -393,23 +404,25 @@
               <h3 style="margin:10px 0 0">Landing page HTML</h3><p class="muted">Délai 1 semaine</p>
             </a>
           </article>
-          <article class="card reveal" id="seoCard">
-  <img class="media" src="image/SEO.webp" alt="Optimisation SEO" width="1200" height="750" loading="lazy" decoding="async"
-       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
-  <h3 style="margin:10px 0 0">Optimisation et conseil SEO</h3>
-  <p class="muted">Search Console • Analytics • PageSpeed Insights</p>
-</article>
 
-<!-- === MODALE DU CARROUSEL === -->
-<div id="carouselModal" class="modal">
-  <span class="close">&times;</span>
-  <div class="carousel">
-    <img src="image/perfmobile.webp" alt="Performance mobile" class="carousel-img active">
-    <img src="image/perfbureau.webp" alt="Performance bureau" class="carousel-img">
-  </div>
-  <button class="prev">&#10094;</button>
-  <button class="next">&#10095;</button>
-</div>
+          <!-- Carte SEO + Modale carrousel -->
+          <article class="card reveal" id="seoCard">
+            <img class="media" src="image/SEO.webp" alt="Optimisation SEO" width="1200" height="750" loading="lazy" decoding="async"
+                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+            <h3 style="margin:10px 0 0">Optimisation et conseil SEO</h3>
+            <p class="muted">Search Console • Analytics • PageSpeed Insights</p>
+          </article>
+
+          <!-- === MODALE DU CARROUSEL === -->
+          <div id="carouselModal" class="modal" aria-modal="true" role="dialog" aria-label="Carrousel SEO">
+            <span class="close" aria-label="Fermer le carrousel">&times;</span>
+            <div class="carousel">
+              <img src="image/perfmobile.webp" alt="Performance mobile" class="carousel-img active">
+              <img src="image/perfbureau.webp" alt="Performance bureau" class="carousel-img">
+            </div>
+            <button class="prev" aria-label="Image précédente">&#10094;</button>
+            <button class="next" aria-label="Image suivante">&#10095;</button>
+          </div>
         </div>
       </div>
     </section>
@@ -419,11 +432,11 @@
       <div class="container">
         <div class="section-head reveal"><h2 id="pricing-title">Tarifs</h2></div>
         <div class="pricing" aria-label="Offres et tarifs">
-          <article class="card price reveal"aria-label="Offre recommandée"><span class="badge-reco">Recommandé</span><div class="tag">Starter — 300€</div><p class="muted">Jusqu’à 5 pages, optimisation de base.</p><ul><li>HTML/CSS/JS ou WP léger</li><li>Formulaire & hébergement</li><li>Indexation Google</li></ul></article>
+          <article class="card price reveal" aria-label="Offre recommandée"><span class="badge-reco">Recommandé</span><div class="tag">Starter — 300€</div><p class="muted">Jusqu’à 5 pages, optimisation de base.</p><ul><li>HTML/CSS/JS ou WP léger</li><li>Formulaire & hébergement</li><li>Indexation Google</li></ul></article>
           <article class="card price reveal"><div class="tag">Business WP — 600€ + 49€/mois</div><p class="muted">Thème sur-mesure, blog, SEO avancé, maintenance.</p><ul><li>10 pages + blog</li><li>Schema.org & tracking</li><li>Sauvegardes & sécurité</li></ul></article>
           <article class="card price reveal"><div class="tag">SEO Boost — 300€/mois</div><p class="muted">Audit, optimisations mensuelles, reporting.</p><ul><li>Roadmap SEO</li><li>3 pages optimisées / mois</li><li>Suivi positions</li></ul></article>
-          <article class="card price reveal"aria-label="Offre recommandée"><span class="badge-reco">Recommandé</span><div class="tag">Création Logo — 100€ minimum</div><p class="muted">RDV + création selon brief</p><ul><li>Photoshop • Illustrator • Canva</li></ul></article>
-           <article class="card price reveal"aria-label="Offre recommandée"><span class="badge-reco">Recommandé</span><div class="tag">Cours et Formation aux IA — 150€ </div><p class="muted">(Tarif négociable en fonction de la demande)</p><ul><li>Cours PDF et explication en visio Formation • école de commerce</li></ul></article>
+          <article class="card price reveal" aria-label="Offre recommandée"><span class="badge-reco">Recommandé</span><div class="tag">Création Logo — 100€ minimum</div><p class="muted">RDV + création selon brief</p><ul><li>Photoshop • Illustrator • Canva</li></ul></article>
+          <article class="card price reveal" aria-label="Offre recommandée"><span class="badge-reco">Recommandé</span><div class="tag">Cours et Formation aux IA — 150€ </div><p class="muted">(Tarif négociable en fonction de la demande)</p><ul><li>Cours PDF et explication en visio Formation • école de commerce</li></ul></article>
         </div>
         <p class="muted" style="margin-top:6px">Tarifs HT — devis précis selon besoin.</p>
       </div>
@@ -459,9 +472,9 @@
             <p><label for="tel">Téléphone</label><br><input id="tel" name="telephone" inputmode="tel" placeholder="Optionnel" autocomplete="tel" /></p>
           </div>
           <p><label for="message">Votre besoin</label><br><textarea id="message" name="message" rows="5" placeholder="Objectifs, pages, deadline, exemples…"></textarea></p>
-          <p style="display:flex;align-items:center;gap:8px"><input id="rgpd" name="rgpd" type="checkbox" required /><label for="rgpd">J’accepte d’être recontacté par Vx2 Studio.</label></p>
+          <p style="display:flex;align-items:center;gap:8px"><input id="rgpd" name="rgpd" type="checkbox" required /><label for="rgpd">J’accepte d’être recontacté par V2X Studio.</label></p>
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-          <input type="hidden" name="_subject" value="Nouveau lead — Vx2 Studio" />
+          <input type="hidden" name="_subject" value="Nouveau lead — V2X Studio" />
           <p>
             <button class="btn primary" type="submit">Envoyer</button>
             <span id="status" class="status muted" role="status" aria-live="polite"></span>
@@ -483,7 +496,7 @@
 
       <div class="footer-grid reveal">
         <section class="footer-col" aria-label="À propos">
-          <div class="footer-brand"><img src="image/V2XSTUDIO.webp" alt="Vx2 Studio" class="footer-brand__logo" width="68" height="68" /><strong>Vx2 Studio</strong></div>
+          <div class="footer-brand"><img src="image/V2XSTUDIO.webp" alt="V2X Studio" class="footer-brand__logo" width="68" height="68" /><strong>V2X Studio</strong></div>
           <p class="muted">Sites rapides, WordPress léger & SEO efficace.</p>
           <div class="footer-social" aria-label="Réseaux sociaux">
             <a class="footer-social__btn" href="https://www.instagram.com/v2x.studio/" target="_blank" rel="noopener" aria-label="Instagram">📸</a>
@@ -512,10 +525,10 @@
       <hr class="footer-sep" />
 
       <div class="footer-bottom">
-        <div>© <span id="year"></span> Vx2 Studio — Tous droits réservés</div>
+        <div>© <span id="year"></span> V2X Studio — Tous droits réservés</div>
         <div class="footer-legal">
-          <a href="Mentions légales.html" target="_blank" rel="noopener">Mentions légales</a>
-          <a href="Confidentialité.html" target="_blank" rel="noopener">Confidentialité</a>
+          <a href="Mentions légales.html" target="_blank" rel="noopener">Mentions légales</a>
+          <a href="Confidentialité.html" target="_blank" rel="noopener">Confidentialité</a>
         </div>
       </div>
     </div>
@@ -530,10 +543,10 @@
       <div tabindex="0" id="vx2TrapStart" aria-hidden="true"></div>
 
       <div class="vx2-chat-header">
-        <h3 class="vx2-chat-title" id="vx2ChatTitle"><span class="vx2-status-dot" aria-hidden="true"></span> Assistant Vx2</h3>
+        <h3 class="vx2-chat-title" id="vx2ChatTitle"><span class="vx2-status-dot" aria-hidden="true"></span> Assistant V2X</h3>
         <button class="vx2-chat-close" id="vx2ChatClose" aria-label="Fermer">×</button>
       </div>
-      <p id="vx2ChatDesc" hidden>Fenêtre de conversation d’assistance Vx2 Studio.</p>
+      <p id="vx2ChatDesc" hidden>Fenêtre de conversation d’assistance V2X Studio.</p>
 
       <div class="vx2-quick" id="vx2Quick">
         <button class="vx2-chip" data-q="Quels sont vos tarifs ?">Tarifs</button>
@@ -561,7 +574,7 @@
       <p class="muted" style="margin:.3rem 0 0">
         Nous utilisons des cookies de mesure (anonymisés) pour améliorer le site. Vous pouvez refuser. Aucune pub ciblée.
       </p>
-      <a href="Confidentialité.html" class="muted" style="font-size:.92rem">En savoir plus</a>
+      <a href="Confidentialité.html" class="muted" style="font-size:.92rem">En savoir plus</a>
     </div>
     <div class="consent-actions">
       <button class="btn small ghost-outline" id="consentDeny">Refuser</button>
@@ -772,7 +785,7 @@
 
       const hoursOk = () => { const d=new Date(), day=d.getDay(), h=d.getHours(); return day>=1 && day<=5 && h>=9 && h<18; };
 
-      // ——— Réponses prêtes (tarifs mis à jour) ———
+      // ——— Réponses prêtes ———
       const canned = [
         {
           k:["tarif","prix","coût","combien","devis"],
@@ -790,7 +803,7 @@
           try{ await fetch(ENDPOINT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ message:txt, at:new Date().toISOString() })}); }catch(e){}
         }
         if (SLACK_WEBHOOK){
-          try{ await fetch(SLACK_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ text:`🔔 Nouveau message Vx2 Chat:\n${txt}` })}); }catch(e){}
+          try{ await fetch(SLACK_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ text:`🔔 Nouveau message V2X Chat:\n${txt}` })}); }catch(e){}
         }
       };
 
@@ -861,42 +874,44 @@
         input.value = btn.getAttribute('data-q') || ''; send();
       });
     })();
+
+    // Carrousel SEO
     const seoCard = document.getElementById('seoCard');
-const modal = document.getElementById('carouselModal');
-const closeBtn = modal.querySelector('.close');
-const imgs = modal.querySelectorAll('.carousel-img');
-const prev = modal.querySelector('.prev');
-const next = modal.querySelector('.next');
-let current = 0;
+    const modal = document.getElementById('carouselModal');
+    const closeBtn = modal.querySelector('.close');
+    const imgs = modal.querySelectorAll('.carousel-img');
+    const prev = modal.querySelector('.prev');
+    const next = modal.querySelector('.next');
+    let current = 0;
 
-seoCard.addEventListener('click', () => {
-  modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-});
+    seoCard.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
 
-closeBtn.addEventListener('click', () => {
-  modal.style.display = 'none';
-  document.body.style.overflow = '';
-});
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    });
 
-function showImage(i) {
-  imgs.forEach(img => img.classList.remove('active'));
-  imgs[i].classList.add('active');
-}
-prev.addEventListener('click', () => {
-  current = (current - 1 + imgs.length) % imgs.length;
-  showImage(current);
-});
-next.addEventListener('click', () => {
-  current = (current + 1) % imgs.length;
-  showImage(current);
-});
-window.addEventListener('click', e => {
-  if (e.target === modal) {
-    modal.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-});
+    function showImage(i) {
+      imgs.forEach(img => img.classList.remove('active'));
+      imgs[i].classList.add('active');
+    }
+    prev.addEventListener('click', () => {
+      current = (current - 1 + imgs.length) % imgs.length;
+      showImage(current);
+    });
+    next.addEventListener('click', () => {
+      current = (current + 1) % imgs.length;
+      showImage(current);
+    });
+    window.addEventListener('click', e => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
   </script>
 </body>
 </html>
