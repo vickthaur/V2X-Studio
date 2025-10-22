@@ -442,6 +442,36 @@
       outline: none;
       box-shadow: 0 0 0 4px rgba(56,189,248,.22);
     }
+    /* === Correction responsive du consentement === */
+#lead .consent,
+#lead label[for="lead-consent"] {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: inherit;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  white-space: normal; /* le texte peut passer à la ligne */
+  word-break: break-word; /* évite le débordement */
+  max-width: 100%;
+}
+
+/* Corrige la taille de la case à cocher */
+#lead input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  accent-color: var(--brand, #0a4466);
+}
+
+/* Optionnel : adapte le texte sur mobile */
+@media (max-width: 480px) {
+  #lead .consent {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
   </style>
 </head>
 
