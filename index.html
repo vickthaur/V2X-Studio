@@ -1,77 +1,185 @@
 <!doctype html>
 <html lang="fr">
+<!doctype html>
+<html lang="fr">
 <head>
-  <!-- ========= META ========= -->
+  <!-- ========= META DE BASE ========= -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <meta name="theme-color" content="#0a4466" />
-  <meta name="description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu. Audit gratuit et devis en 24h." />
-  <meta name="robots" content="index,follow" />
-  <title>V2X Studio</title>
-  <link rel="canonical" href="https://vickthaur.github.io/V2X-Studio/" />
-  <link rel="icon" type="image/webp" href="image/V2XSTUDIO.webp" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="format-detection" content="telephone=no" />
 
-  <!-- Open Graph -->
+  <!-- ========= TITRE & DESCRIPTION (mots-clés locaux intégrés) ========= -->
+  <title>V2X Studio — Créateur de site web à Aix-en-Provence | Agence SEO, Design web, Création de logo & Cours IA</title>
+  <meta name="description" content="Créateur de site web à Aix-en-Provence : sites vitrines & WordPress légers, SEO local (agence SEO Aix-en-Provence), design web, création digitale & logos, cours d’IA. Audit gratuit, devis en 24h." />
+
+  <!-- ========= CANONICAL & HREFLANG ========= -->
+  <link rel="canonical" href="https://v2x-studio.fr/" />
+  <link rel="alternate" hreflang="fr-FR" href="https://v2x-studio.fr/" />
+  <link rel="alternate" hreflang="x-default" href="https://v2x-studio.fr/" />
+
+  <!-- ========= FAVICONS ========= -->
+  <link rel="icon" type="image/webp" href="https://v2x-studio.fr/image/V2XSTUDIO.webp" />
+  <link rel="apple-touch-icon" href="https://v2x-studio.fr/image/V2XSTUDIO.webp" />
+
+  <!-- ========= OPEN GRAPH / TWITTER ========= -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="V2X Studio — Sites web rapides, WordPress & SEO" />
-  <meta property="og:description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu." />
-  <meta property="og:image" content="https://vickthaur.github.io/V2X-Studio/image/og-cover.jpg" />
-  <meta property="og:url" content="https://vickthaur.github.io/V2X-Studio/" />
+  <meta property="og:title" content="V2X Studio — Créateur de site web à Aix-en-Provence | Agence SEO & Design" />
+  <meta property="og:description" content="Sites rapides, WordPress léger, SEO local, design web, logos et cours IA. Audit gratuit, réponse sous 24h." />
+  <meta property="og:image" content="https://v2x-studio.fr/image/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://v2x-studio.fr/" />
   <meta property="og:site_name" content="V2X Studio" />
   <meta property="og:locale" content="fr_FR" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="V2X Studio — Sites web rapides, WordPress & SEO" />
-  <meta name="twitter:description" content="Sites épurés et ultra-rapides en HTML/CSS/JS ou WordPress. SEO technique & contenu." />
-  <meta name="twitter:image" content="https://vickthaur.github.io/V2X-Studio/image/og-cover.jpg" />
+  <meta name="twitter:title" content="V2X Studio — Créateur de site web à Aix-en-Provence" />
+  <meta name="twitter:description" content="WordPress & SEO local, design web, logos, création digitale et cours IA." />
+  <meta name="twitter:image" content="https://v2x-studio.fr/image/og-cover.jpg" />
 
-  <!-- JSON-LD Organization -->
-  <script type="application/ld+json">
+  <!-- ========= PERFS (PRECONNECT / PRELOAD) ========= -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Préchargement visuels clés -->
+  <link rel="preload" as="image" href="/image/V2XSTUDIO.webp" imagesizes="(max-width: 768px) 120px, 180px" />
+  <link rel="preload" as="image" href="/image/og-cover.jpg" />
+
+  <!-- ========= JSON-LD : Local business & offres ========= -->
+  <script> type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"V2X Studio",
-    "url":"https://vickthaur.github.io/V2X-Studio/",
-    "logo":"https://vickthaur.github.io/V2X-Studio/image/V2XSTUDIO.webp",
-    "sameAs":[
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "V2X Studio",
+    "url": "https://v2x-studio.fr/",
+    "image": "https://v2x-studio.fr/image/og-cover.jpg",
+    "logo": "https://v2x-studio.fr/image/V2XSTUDIO.webp",
+    "description": "Créateur de site web à Aix-en-Provence. WordPress léger, SEO local, design web, création digitale, création de logo et cours d'IA.",
+    "telephone": "+33785977164",
+    "email": "victor.2xstudio@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Aix-en-Provence",
+      "addressRegion": "Provence-Alpes-Côte d'Azur",
+      "addressCountry": "FR"
+    },
+    "areaServed": ["Aix-en-Provence", "Marseille", "Bouches-du-Rhône", "PACA", "France"],
+    "sameAs": [
       "https://www.instagram.com/v2x.studio/",
       "https://github.com/Vickthaur",
       "https://www.linkedin.com/in/victor-detroux-bb9753234/"
-    ]
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Prestations V2X Studio",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Création de site web (HTML/CSS/JS & WordPress)",
+            "serviceType": "Web Design & Développement",
+            "areaServed": "Aix-en-Provence",
+            "description": "Conception de sites vitrines rapides et WordPress léger (Gutenberg)."
+          },
+          "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR" }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Agence SEO à Aix-en-Provence (SEO local & on-page)",
+            "serviceType": "SEO",
+            "description": "Audit technique, optimisation on-page, SEO local (Google Business Profile), maillage interne, schema.org."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Design web & Création digitale",
+            "serviceType": "Design",
+            "description": "Web design moderne, UI/UX, identité visuelle, kits de réseaux sociaux."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Création de logo & identité",
+            "serviceType": "Branding",
+            "description": "Création de logos, chartes graphiques et déclinaisons print/web."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Course",
+            "name": "Cours & ateliers IA pour PME",
+            "description": "Formations IA : prompts efficaces, automatisations, intégration IA dans les workflows marketing.",
+            "provider": { "@type": "Organization", "name": "V2X Studio" }
+          }
+        }
+      ]
+    }
   }
   </script>
 
-  <!-- JSON-LD FAQPage -->
-  <script type="application/ld+json">
+  <!-- ========= JSON-LD : WebSite + Sitelinks Search ========= -->
+  <script> type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@type": "WebSite",
+    "name": "V2X Studio",
+    "url": "https://v2x-studio.fr/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://v2x-studio.fr/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- ========= JSON-LD : FAQ (mots-clés intégrés) ========= -->
+  <script> type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
       {
-        "@type": "Question",
-        "name": "Quels sont vos tarifs ?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Starter (HTML/CSS/JS) — 300€ HT. Business WordPress — 600€ HT + 49€/mois. SEO Boost — 300€/mois. Création de logo — à partir de 100€ HT. Devis précis après un appel de 15 min." }
+        "@type":"Question",
+        "name":"Proposez-vous la création de site web à Aix-en-Provence ?",
+        "acceptedAnswer":{"@type":"Answer","text":"Oui. Nous concevons des sites vitrines rapides en HTML/CSS/JS et des sites WordPress légers optimisés SEO, avec un focus sur le SEO local à Aix-en-Provence."}
       },
       {
-        "@type": "Question",
-        "name": "Quels sont les délais pour un site ?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Site vitrine : 7–14 jours. WordPress complet : 2–4 semaines selon les contenus fournis." }
+        "@type":"Question",
+        "name":"Pouvez-vous gérer le SEO local comme une agence SEO à Aix-en-Provence ?",
+        "acceptedAnswer":{"@type":"Answer","text":"Oui. Audit technique, optimisation on-page, Google Business Profile, gestion des avis, schema.org et suivi de positions locales."}
       },
       {
-        "@type": "Question",
-        "name": "Que proposez-vous en SEO ?",
-        "acceptedAnswer": { "@type": "Answer", "text": "SEO technique (balises, structure, performances), optimisation on-page, schema.org, plan d’actions et suivi des positions." }
+        "@type":"Question",
+        "name":"Faites-vous du design web et de la création digitale ?",
+        "acceptedAnswer":{"@type":"Answer","text":"Oui. Design web moderne (UI/UX), maquettes, refontes, identités visuelles et créations digitales pour réseaux sociaux."}
       },
       {
-        "@type": "Question",
-        "name": "Pouvez-vous migrer vers WordPress ?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Oui, migration vers un WordPress léger (Gutenberg), sécurité, sauvegardes et maintenance." }
+        "@type":"Question",
+        "name":"Réalisez-vous des logos et chartes graphiques ?",
+        "acceptedAnswer":{"@type":"Answer","text":"Oui. Création de logos sur-mesure, systèmes de couleurs/typos, livrables print et web."}
+      },
+      {
+        "@type":"Question",
+        "name":"Proposez-vous des cours d’IA ?",
+        "acceptedAnswer":{"@type":"Answer","text":"Oui. Ateliers et cours d’IA pour dirigeants et équipes : rédaction assistée, automatisations, bonnes pratiques et éthique."}
       }
     ]
   }
   </script>
-
   <!-- Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
