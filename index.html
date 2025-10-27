@@ -1,5 +1,4 @@
 <!doctype html>
-<html lang="fr">
 <head>
   <!-- ========= META DE BASE ========= -->
   <meta charset="utf-8" />
@@ -16,11 +15,16 @@
   <!-- ========= CANONICAL & HREFLANG ========= -->
   <link rel="canonical" href="https://v2x-studio.fr/" />
   <link rel="alternate" hreflang="fr-FR" href="https://v2x-studio.fr/" />
+  <link rel="alternate" hreflang="fr" href="https://v2x-studio.fr/" />
   <link rel="alternate" hreflang="x-default" href="https://v2x-studio.fr/" />
 
-  <!-- ========= FAVICONS ========= -->
-  <link rel="icon" type="image/webp" href="https://v2x-studio.fr/image/V2XSTUDIO.webp" />
-  <link rel="apple-touch-icon" href="https://v2x-studio.fr/image/V2XSTUDIO.webp" />
+  <!-- ========= FAVICONS / WEB APP ========= -->
+  <!-- Place ces fichiers à la racine du site -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="/favicon-16.png" sizes="16x16" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- ========= OPEN GRAPH / TWITTER ========= -->
   <meta property="og:type" content="website" />
@@ -37,16 +41,14 @@
   <meta name="twitter:description" content="WordPress & SEO local, design web, logos, création digitale et cours IA." />
   <meta name="twitter:image" content="https://v2x-studio.fr/image/og-cover.jpg" />
 
-  <!-- ========= PERFS (PRECONNECT / PRELOAD) ========= -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="image/V2XSTUDIO.webp" imagesizes="(max-width: 768px) 120px, 180px" />
-  <link rel="preload" as="image" href="image/og-cover.jpg" />
+  <!-- ========= PERFS (PRECONNECT / POLICES / PRELOAD IMAGES) ========= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/image/V2XSTUDIO.webp" />
+  <link rel="preload" as="image" href="/image/og-cover.jpg" imagesrcset="/image/og-cover.jpg 1200w" imagesizes="100vw" />
 
-  <!-- ========= JSON-LD : Local business & offres ========= -->
+  <!-- ========= JSON-LD : Service local ========= -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -155,7 +157,6 @@
     ]
   }
   </script>
-
   <!-- ========= STYLES ========= -->
   <style>
     /* ================= Design System ================= */
